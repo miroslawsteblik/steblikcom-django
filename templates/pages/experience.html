@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Experience — {{ site_meta.name }}{% endblock %}
+{% block meta_description %}7 years building data infrastructure for finance — Bloomberg, Mercer, and a homelab that never sleeps.{% endblock %}
+{% block banner %}{% endblock %}
+{% block content %}
+  <section class="about-hero">
+    <h1>Career &amp; Experience</h1>
+    <p class="lede">
+      7 years turning messy financial data into reliable, queryable systems —
+      from fixed income databases at Bloomberg to pension analytics at Mercer.
+      I architect things from scratch, ship pipelines that don't wake people up at night,
+      and break things on purpose in a homelab so I don't break them at work.
+    </p>
+  </section>
+
+  {# ── Stats strip ─────────────────────────────────────────────────────────── #}
+  <div class="exp-stats">
+    <div class="exp-stat">
+      <span class="exp-stat-value">7+</span>
+      <span class="exp-stat-label">Years in data</span>
+    </div>
+    <div class="exp-stat">
+      <span class="exp-stat-value">325k+</span>
+      <span class="exp-stat-label">Bloomberg users</span>
+    </div>
+    <div class="exp-stat">
+      <span class="exp-stat-value">0→1</span>
+      <span class="exp-stat-label">Infra builds</span>
+    </div>
+    <div class="exp-stat">
+      <span class="exp-stat-value">5</span>
+      <span class="exp-stat-label">Certifications</span>
+    </div>
+  </div>
+
+  {# ── Experience timeline ──────────────────────────────────────────────────── #}
+  <section class="about-section">
+    <h2>Work</h2>
+    <ul class="timeline">
+
+      <li class="timeline-item">
+        <p class="timeline-period">Sep 2024 — Present</p>
+        <p class="timeline-role">Data Engineer — Workplace Savings</p>
+        <p class="timeline-company">Mercer Ltd · London</p>
+        <ul>
+          <li>
+            <strong>Built the data infra from zero.</strong> Designed the Databricks
+            architecture for the Workplace Savings division — Asset Bundles for
+            deployment, self-hosted GitHub Actions runners for CI/CD. Nothing existed before.
+          </li>
+          <li>
+            <strong>dbt pipelines the finance team trusts.</strong> Modelled and shipped
+            analytics for the Head of DC Pensions and Finance groups — the kind of
+            reports that go straight to leadership without a sanity check.
+          </li>
+          <li>
+            <strong>Python CLI that replaced a mess of scripts.</strong> Wrote a
+            comprehensive CLI application for data preprocessing — one command instead
+            of six manual steps stitched together with hope.
+          </li>
+          <li>
+            <strong>Investment tooling.</strong> Portfolio rebalancing monitor and fund
+            performance tracker that gave the Investment team meaningful capacity back.
+          </li>
+        </ul>
+      </li>
+
+      <li class="timeline-item">
+        <p class="timeline-period">Aug 2021 — Aug 2024</p>
+        <p class="timeline-role">Data Analyst — Workplace Savings</p>
+        <p class="timeline-company">Mercer Ltd · London</p>
+        <ul>
+          <li>
+            <strong>Automated the manual stuff.</strong> Python scripts replaced
+            repetitive MI reporting processes — less copy-paste, more actual analysis.
+          </li>
+          <li>
+            <strong>Sales Pipeline Tracker.</strong> Built and maintained the Power BI
+            dashboard that the sales team actually uses — one of those that gets
+            printed and put on walls.
+          </li>
+          <li>
+            <strong>Data quality processes.</strong> Implemented controls to ensure
+            accuracy and auditability of financial data — because in regulated finance,
+            "probably right" isn't good enough.
+          </li>
+        </ul>
+      </li>
+
+      <li class="timeline-item">
+        <p class="timeline-period">Nov 2017 — Jul 2021</p>
+        <p class="timeline-role">Data Management Analyst</p>
+        <p class="timeline-company">Bloomberg LP · London</p>
+        <ul>
+          <li>
+            <strong>Fixed Income database at scale.</strong> Managed the end-to-end
+            data lifecycle for a securities database relied on by 325,000+ traders,
+            analysts, and portfolio managers globally. It had to be right.
+          </li>
+          <li>
+            <strong>Automated validation and reconciliation.</strong> Designed rules
+            and processes to catch data quality issues before they propagated — global
+            bond data, zero tolerance for drift.
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </section>
+
+  {# ── Projects ─────────────────────────────────────────────────────────────── #}
+  <section class="about-section">
+    <h2>Projects</h2>
+    <ul class="timeline">
+
+      <li class="timeline-item">
+        <p class="timeline-period">Side project</p>
+        <p class="timeline-role">Investor Reporting App</p>
+        <p class="timeline-company">Streamlit · Python</p>
+        <ul>
+          <li>Financial data visualisation app built with Streamlit — fast to iterate, useful for exploring portfolio metrics without spinning up a BI tool.</li>
+        </ul>
+      </li>
+
+      <li class="timeline-item">
+        <p class="timeline-period">Open source</p>
+        <p class="timeline-role">Selene</p>
+        <p class="timeline-company">GitHub · Python</p>
+        <ul>
+          <li>Open-source data project. Available on <a href="{{ site_meta.github }}" style="color: var(--accent);">GitHub</a>.</li>
+        </ul>
+      </li>
+
+      <li class="timeline-item">
+        <p class="timeline-period">Ongoing</p>
+        <p class="timeline-role">Home Lab</p>
+        <p class="timeline-company">Ubuntu Server · Docker · Self-hosted</p>
+        <ul>
+          <li>Personal Ubuntu Server running self-hosted tooling, infrastructure experiments, and whatever new stack I'm currently breaking. Treated like production — because that's how you learn.</li>
+        </ul>
+      </li>
+
+    </ul>
+  </section>
+
+  {# ── Certifications ───────────────────────────────────────────────────────── #}
+  <section class="about-section">
+    <h2>Certifications &amp; Education</h2>
+    <div class="cert-grid">
+      <div class="cert-item">
+        <span class="cert-name">Financial Modelling &amp; Valuation Analyst (FMVA)</span>
+        <span class="cert-issuer">CFI</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">Certificate in Discretionary Investment Management</span>
+        <span class="cert-issuer">CII</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">Investment Operation Certificate</span>
+        <span class="cert-issuer">CISI</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">Certificate in Business Accounting</span>
+        <span class="cert-issuer">CIMA</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">SQL for Business Analysts</span>
+        <span class="cert-issuer">DataCamp</span>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

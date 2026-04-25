@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}About — {{ site_meta.name }}{% endblock %}
+{% block meta_description %}Data engineer based in London, building pipelines and tinkering in a homelab.{% endblock %}
+{% block content %}
+  <section class="about-hero">
+    <div>
+      <h1>Hi, I'm {{ site_meta.full_name }}</h1>
+      <p class="lede">
+        I'm a data engineer working on investment data pipelines. I build
+        things with Python, Polars, and dbt, and I run a homelab to break
+        things on purpose so I don't have to break them by accident at work.
+      </p>
+    </div>
+  </section>
+  {# ── Profile ─────────────────────────────────────────────────────────── #}
+  <section class="home-profile">
+    <div class="profile-card">
+      <img src="{% static 'img/me.jpeg' %}"
+           alt="Professional headshot of Miroslaw Steblik"
+           class="profile-photo">
+      <div class="profile-caption">
+        <p>
+          "I build the data infrastructure that investment teams rely on when the numbers
+          actually matter — pensions, fund performance, regulatory reporting. The kind of
+          work where "probably right" isn't good enough."
+
+        </p>
+
+      </div>
+    </div>
+  </section>
+  {# ── Skills ──────────────────────────────────────────────────────────── #}
+  <section class="home-skills">
+    <h2 class="home-skills-heading">Skills &amp; Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Programming</h3>
+        <ul>
+          <li>
+            <a href="{% url 'blog:tag_list' 'python' %}">Python</a>
+          </li>
+          <li>
+            <a href="{% url 'blog:tag_list' 'api' %}">API</a>
+          </li>
+          <li>
+            <a href="{% url 'blog:tag_list' 'sql' %}">SQL</a>
+          </li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Data Engineering</h3>
+        <ul>
+          <li>
+            <a href="{% url 'blog:tag_list' 'dbt' %}">DBT</a>
+          </li>
+          <li>
+            <a href="{% url 'blog:tag_list' 'databricks' %}">Databricks</a>
+          </li>
+          <li>
+            <a href="{% url 'blog:tag_list' 'salesforce' %}">Salesforce</a>
+          </li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Infrastructure</h3>
+        <ul>
+          <li>
+            <a href="{% url 'blog:tag_list' 'docker' %}">Docker</a>
+          </li>
+          <li>
+            <a href="{% url 'blog:tag_list' 'linux' %}">Linux</a>
+          </li>
+          <li>
+            <a href="{% url 'blog:tag_list' 'github-actions' %}">Github Actions</a>
+          </li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Cloud</h3>
+        <ul>
+          <li>
+            <a href="{% url 'blog:tag_list' 'aws' %}">AWS</a>
+          </li>
+          <li>
+            <a href="{% url 'blog:tag_list' 'gcp' %}">GCP</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="about-section">
+    <h2>What I do</h2>
+    <p>
+      My day job is turning messy financial data into reliable, queryable
+      datasets. That means ingestion, transformation, modelling, monitoring, and analytics.
+    </p>
+
+  </section>
+  <section class="about-section">
+    <h2>Elsewhere</h2>
+    <p>
+      Find me on <a href="{{ site_meta.github }}">GitHub</a>,
+      or drop me a line at <a href="mailto:{{ site_meta.email }}">{{ site_meta.email }}</a>.
+    </p>
+  </section>
+{% endblock %}

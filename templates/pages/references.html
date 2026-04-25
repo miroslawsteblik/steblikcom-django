@@ -1,0 +1,31 @@
+{# templates/pages/references.html #}
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}References — {{ site_meta.name }}{% endblock %}
+{% block meta_description %}What people I've worked with have said.{% endblock %}
+
+{% block content %}
+  <h1>References</h1>
+  <p class="lede">Kind words from people I've worked with.</p>
+
+  <ul class="references-list">
+    {% for ref in references %}
+      <li class="reference-card">
+        <img src="{% static ref.photo %}" alt="{{ ref.name }}" class="reference-photo" loading="lazy">
+        <blockquote class="reference-quote">
+          <p>"{{ ref.quote }}"</p>
+          <footer>
+            <strong>{{ ref.name }}</strong>
+            <span class="reference-role">{{ ref.role }}</span>
+            {% if ref.link %}
+              <a href="{{ ref.link }}" class="reference-link" rel="nofollow noopener">Profile</a>
+            {% endif %}
+          </footer>
+        </blockquote>
+      </li>
+    {% empty %}
+      <li>No references yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "charliermarsh.ruff",
+    "monosans.djlint",
+    "batisteo.vscode-django",
+    "esbenp.prettier-vscode",
+    "tamasfe.even-better-toml",
+    "foxundermoon.shell-format",
+    "mikestead.dotenv",
+    "redhat.vscode-yaml",
+    "eamodio.gitlens",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

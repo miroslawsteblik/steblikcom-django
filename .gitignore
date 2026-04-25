@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.pyc
+db.sqlite3
+db.sqlite3-journal
+db.sqlite3-wal
+db.sqlite3-shm
+data/
+.env
+staticfiles/
+media/
+.ruff_cache/
+.DS_Store
+
+# Commit settings.json and extensions.json, ignore everything else in .vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json

@@ -1,0 +1,67 @@
+{
+  // ─── Python interpreter (uv-managed .venv in workspace root) ───
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.terminal.activateEnvironment": true,
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "python.analysis.typeCheckingMode": "standard",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.extraPaths": ["${workspaceFolder}"],
+  "python.analysis.inlayHints.variableTypes": false,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.callArgumentNames": "partial",
+  "python.analysis.stubPath": "${workspaceFolder}/typings",
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestArgs": ["--no-header", "-rN"],
+
+  // ─── Python formatting / linting (ruff) ───
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  },
+  "ruff.lint.enable": true,
+
+  // ─── Django templates (djlint) ───
+  "[django-html]": {
+    "editor.defaultFormatter": "monosans.djlint",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
+  },
+  "[html]": {
+    "editor.defaultFormatter": "monosans.djlint",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
+  },
+  "files.associations": {
+    "**/templates/**/*.html": "django-html",
+    "**/*.env.example": "dotenv",
+    "**/.env*": "dotenv"
+  },
+  "djlint.enableLinting": true,
+  "djlint.profile": "django",
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+
+  // ─── Spell checker ───
+  "cSpell.words": [
+    "addopts", "allauth", "appname", "bandit", "bleach", "charliermarsh",
+    "Databricks", "djlint", "dotenv", "elif", "endblock", "endfor", "endif", "endwith",
+    "frontmatter", "hatchling", "homelab", "kwargs", "lede", "Miroslaw", "monosans", "pillow", "pygments", "tabindex",
+    "pytest", "pyupgrade", "ruff", "sitemaps", "srcs", "steblik",
+    "steblikcom", "venv", "whitenoise"
+  ],
+
+  // ─── Terminal ───
+  "terminal.integrated.cwd": "${workspaceFolder}",
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.env.linux": {
+    "VIRTUAL_ENV": "${workspaceFolder}/.venv",
+    "PATH": "${workspaceFolder}/.venv/bin:${env:PATH}"
+  }
+}

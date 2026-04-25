@@ -1,0 +1,7 @@
+steblik.com {
+    reverse_proxy web:8000
+}
+
+www.steblik.com {
+    redir https://steblik.com{uri} permanent
+}

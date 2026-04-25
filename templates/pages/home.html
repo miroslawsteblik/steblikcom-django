@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block banner %}{% endblock %}
+{% block content %}
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <span class="terminal-prompt">~/portfolio $ whoami</span>
+    </div>
+    <h1>{{ site_meta.full_name }}</h1>
+    <p class="tagline">{{ site_meta.tagline }}</p>
+    <p class="hero-bio">
+      I build data pipelines for investment firms and break things in my
+      homelab for fun. This site is a running log of projects I've shipped
+      and things I've learned along the way.
+    </p>
+    <div class="hero-links">
+      <a href="{% url 'blog:post_list' %}" class="btn btn-primary">Read the blog</a>
+      <a href="{% url 'pages:about' %}" class="btn btn-ghost">About me</a>
+    </div>
+  </section>
+{% endblock %}
