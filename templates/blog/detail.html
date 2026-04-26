@@ -19,7 +19,10 @@
     <p>
       <a href="{% url 'blog:post_list' %}">← All posts</a>
     </p>
-    <h1>{{ post.title }}</h1>
+    <h1>
+      {{ post.title }}
+      {% if post.premium %}<span class="premium-badge">🔒 Members</span>{% endif %}
+    </h1>
     <p class="meta">
       <time datetime="{{ post.date|date:'Y-m-d' }}">{{ post.date|date:"N j, Y" }}</time>
     </p>
@@ -28,6 +31,15 @@
         {% for tag in post.tags %}<li>{{ tag }}</li>{% endfor %}
       </ul>
     {% endif %}
-    {{ post.html|safe }}
+    {% if premium_locked %}
+      <div class="paywall">
+        <div class="paywall-icon">🔒</div>
+        <h2>Members-only content</h2>
+        <p>Log in to read this article.</p>
+        <a href="{% url 'account_login' %}?next={{ request.path }}" class="btn-primary">Log in to continue</a>
+      </div>
+    {% else %}
+      {{ post.html|safe }}
+    {% endif %}
   </article>
 {% endblock %}

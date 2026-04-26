@@ -14,7 +14,8 @@ def post_detail(request: HttpRequest, slug: str) -> HttpResponse:
     post = get_post(slug)
     if post is None:
         raise Http404
-    return render(request, "blog/detail.html", {"post": post})
+    premium_locked = post.premium and not request.user.is_authenticated
+    return render(request, "blog/detail.html", {"post": post, "premium_locked": premium_locked})
 
 
 def tag_list(request: HttpRequest, tag: str) -> HttpResponse:

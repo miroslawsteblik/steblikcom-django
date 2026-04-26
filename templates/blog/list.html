@@ -8,17 +8,25 @@
   <div class="banner-container">
     <img src="{% static 'img/banner_pipeline.jpeg' %}" alt="" class="banner-img">
     <div class="banner-overlay">
-      <p class="banner-label">Blog</p>
+      <p class="banner-label">{% if request.user.is_authenticated %}Members Area{% else %}Blog{% endif %}</p>
     </div>
   </div>
 {% endblock %}
 {% block content %}
   <div class="blog-layout">
     <div>
-      <h1>
-        Writing
-        {% if active_tag %}<span class="tag-filter-label">tagged "{{ active_tag }}"</span>{% endif %}
-      </h1>
+      {% if request.user.is_authenticated %}
+        <h1>
+          Members Area
+          {% if active_tag %}<span class="tag-filter-label">tagged "{{ active_tag }}"</span>{% endif %}
+        </h1>
+        <p class="members-intro">All posts — free and members-only — in one place.</p>
+      {% else %}
+        <h1>
+          Writing
+          {% if active_tag %}<span class="tag-filter-label">tagged "{{ active_tag }}"</span>{% endif %}
+        </h1>
+      {% endif %}
       <ul class="project-grid">
         {% for post in posts %}
           <li class="project-card">
@@ -31,6 +39,7 @@
             <div class="project-card-body">
               <h2>
                 <a href="{% url 'blog:post_detail' post.slug %}">{{ post.title }}</a>
+                {% if post.premium %}<span class="premium-badge">🔒 Members</span>{% endif %}
               </h2>
               <p class="meta">
                 <time datetime="{{ post.date|date:'Y-m-d' }}">{{ post.date|date:"N j, Y" }}</time>

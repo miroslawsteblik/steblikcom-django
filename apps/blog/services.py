@@ -24,8 +24,9 @@ class Post:
     summary: str
     html: str
     draft: bool
-    card_image_url: str = field(default="")  # thumbnail shown on list cards
-    banner_image_url: str = field(default="")  # full-width banner on detail page
+    premium: bool = field(default=False)
+    card_image_url: str = field(default="")
+    banner_image_url: str = field(default="")
 
 
 def _asset_url(slug: str, filename: str) -> str:
@@ -75,6 +76,7 @@ def _load_post(path: Path) -> Post:
         tags=tuple(str(t) for t in (fm.get("tags") or [])),  # type: ignore[union-attr]
         summary=str(fm.get("summary", "")),
         draft=bool(fm.get("draft", False)),
+        premium=bool(fm.get("premium", False)),
         html=html,
         card_image_url=card_image_url,
         banner_image_url=banner_image_url,
