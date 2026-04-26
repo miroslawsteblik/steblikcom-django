@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Email address — {{ site_meta.name }}{% endblock %}
+{% block banner %}{% endblock %}
+{% block content %}
+  <div class="auth-card" style="max-width:520px">
+    <h1 class="auth-title">Email address</h1>
+    {% if emailaddresses %}
+      <ul class="dashboard-action-list" style="margin-bottom:1.5rem">
+        {% for radio in emailaddress_radios %}
+          {% with ea=radio.emailaddress %}
+            <li>
+              <div class="dashboard-action-link" style="cursor:default">
+                <span class="dashboard-action-icon">✉</span>
+                <span>
+                  <strong>{{ ea.email }}</strong>
+                  <small>
+                    {% if ea.verified %}Verified{% else %}Unverified{% endif %}
+                    {% if ea.primary %} · Primary{% endif %}
+                  </small>
+                </span>
+              </div>
+            </li>
+          {% endwith %}
+        {% endfor %}
+      </ul>
+      <form method="post" action="{% url 'account_email' %}">
+        {% csrf_token %}
+        {% for radio in emailaddress_radios %}
+          <input type="hidden" name="email" value="{{ radio.emailaddress.email }}">
+        {% endfor %}
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+          <button type="submit" name="action_send" class="btn-primary">Re-send verification</button>
+        </div>
+      </form>
+    {% endif %}
+    <p class="auth-divider" style="margin-top:1.5rem">
+      <a href="{% url 'profile' %}">← Back to dashboard</a>
+    </p>
+  </div>
+{% endblock %}
+{% block extra_head %}
+  <script src="{% static 'account/js/account.js' %}" defer></script>
+{% endblock %}

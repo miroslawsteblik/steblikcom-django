@@ -24,7 +24,7 @@ migrate:
 
 # Open Django shell
 shell:
-    uv run python manage.py shell
+    uv run python manage.py shell_plus
 
 # Create superuser
 superuser:

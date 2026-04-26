@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Log out — {{ site_meta.name }}{% endblock %}
+{% block banner %}{% endblock %}
+{% block content %}
+  <div class="auth-card">
+    <h1 class="auth-title">Log out</h1>
+    <p class="auth-subtitle">Are you sure you want to log out?</p>
+    <form method="post" action="{% url 'account_logout' %}">
+      {% csrf_token %}
+      <button type="submit" class="btn-primary btn-full">Log out</button>
+    </form>
+  </div>
+{% endblock %}

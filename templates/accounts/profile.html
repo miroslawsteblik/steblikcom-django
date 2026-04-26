@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Dashboard — {{ site_meta.name }}{% endblock %}
+{% block banner %}{% endblock %}
+{% block content %}
+  <div class="dashboard">
+
+    {# ── Header ────────────────────────────────────────────────────────────── #}
+    <div class="dashboard-header">
+      <div>
+        <p class="dashboard-label">Signed in as</p>
+        <h1 class="dashboard-title">{{ user.email }}</h1>
+        <p class="dashboard-meta">Member since {{ user.date_joined|date:"N Y" }}</p>
+      </div>
+      <a href="{% url 'account_logout' %}" class="btn-primary">Log out</a>
+    </div>
+
+    <div class="dashboard-grid">
+
+      {# ── Membership ────────────────────────────────────────────────────────── #}
+      <section class="dashboard-card">
+        <h2 class="dashboard-card-title">Membership</h2>
+        <div class="dashboard-status">
+          <span class="status-badge status-badge--active">Active</span>
+          <span class="dashboard-status-label">Free member</span>
+        </div>
+        <p class="dashboard-card-note">
+          Paid tiers with courses and consultations are coming soon.
+        </p>
+      </section>
+
+      {# ── Security ──────────────────────────────────────────────────────────── #}
+      <section class="dashboard-card">
+        <h2 class="dashboard-card-title">Security</h2>
+        <ul class="dashboard-action-list">
+          <li>
+            <a href="{% url 'account_change_password' %}" class="dashboard-action-link">
+              <span class="dashboard-action-icon">🔒</span>
+              <span>
+                <strong>Change password</strong>
+                <small>Update your login password</small>
+              </span>
+              <span class="dashboard-action-arrow">›</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'account_email' %}" class="dashboard-action-link">
+              <span class="dashboard-action-icon">✉</span>
+              <span>
+                <strong>Email address</strong>
+                <small>{{ user.email }}</small>
+              </span>
+              <span class="dashboard-action-arrow">›</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      {# ── Members area ──────────────────────────────────────────────────────── #}
+      <section class="dashboard-card dashboard-card--wide">
+        <h2 class="dashboard-card-title">Members area</h2>
+        <p class="dashboard-card-note">
+          Access all posts — including members-only content — from the blog.
+        </p>
+        <a href="{% url 'blog:post_list' %}" class="btn-primary">Go to members blog</a>
+      </section>
+
+    </div>
+  </div>
+{% endblock %}

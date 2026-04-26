@@ -1,20 +1,21 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Experience — {{ site_meta.name }}{% endblock %}
-{% block meta_description %}7 years building data infrastructure for finance — Bloomberg, Mercer, and a homelab that never sleeps.{% endblock %}
+{% block title %}Services — {{ site_meta.name }}{% endblock %}
+{% block meta_description %}Data engineering consulting, freelance pipelines, and courses — 7 years building financial data infrastructure at Bloomberg and Mercer.{% endblock %}
 {% block banner %}{% endblock %}
 {% block content %}
+
+  {# ── Hero ─────────────────────────────────────────────────────────────────── #}
   <section class="about-hero">
-    <h1>Career &amp; Experience</h1>
+    <h1>Work with me</h1>
     <p class="lede">
-      7 years turning messy financial data into reliable, queryable systems —
-      from fixed income databases at Bloomberg to pension analytics at Mercer.
-      I architect things from scratch, ship pipelines that don't wake people up at night,
-      and break things on purpose in a homelab so I don't break them at work.
+      7 years shipping data infrastructure that investment teams trust with
+      real numbers — Bloomberg, Mercer, and a homelab that never sleeps.
+      Available for freelance engagements, consulting, and corporate data projects.
     </p>
   </section>
 
-  {# ── Stats strip ─────────────────────────────────────────────────────────── #}
+  {# ── Stats strip ──────────────────────────────────────────────────────────── #}
   <div class="exp-stats">
     <div class="exp-stat">
       <span class="exp-stat-value">7+</span>
@@ -34,9 +35,65 @@
     </div>
   </div>
 
-  {# ── Experience timeline ──────────────────────────────────────────────────── #}
+  {# ── Services ─────────────────────────────────────────────────────────────── #}
   <section class="about-section">
-    <h2>Work</h2>
+    <h2>Services</h2>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3>Data infrastructure</h3>
+        <p>
+          Greenfield builds and legacy modernisation. Databricks, dbt, Kafka,
+          PostgreSQL, Docker. I architect from scratch and hand over something
+          the team can actually maintain.
+        </p>
+        <p class="service-ideal">Best for: scale-ups and investment firms building their first serious data platform.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Pipeline engineering</h3>
+        <p>
+          Reliable ingestion, transformation, and delivery pipelines using Python,
+          Polars, and dbt. Tested, monitored, and documented — not "it works on my machine".
+        </p>
+        <p class="service-ideal">Best for: teams drowning in manual data work or brittle ETL scripts.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎓</div>
+        <h3>Courses <span class="coming-soon-badge">Coming soon</span></h3>
+        <p>
+          Structured learning on the modern data stack — dbt, Polars, pipeline
+          architecture, and building production-grade systems. Real projects,
+          not toy examples.
+        </p>
+        <p class="service-ideal">Best for: data analysts moving into engineering, or engineers upskilling.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💬</div>
+        <h3>Consulting</h3>
+        <p>
+          Architecture reviews, stack decisions, team upskilling, and technical
+          advisory. Useful when you need a second opinion from someone who has
+          shipped this stuff in regulated environments.
+        </p>
+        <p class="service-ideal">Best for: CTOs and Heads of Data who need honest, independent input.</p>
+      </div>
+
+    </div>
+
+    <div class="services-cta">
+      <p>Interested in working together?</p>
+      <a href="mailto:{{ site_meta.email }}" class="btn-primary">Get in touch</a>
+    </div>
+  </section>
+
+  {# ── Experience timeline ───────────────────────────────────────────────────── #}
+  <section class="about-section">
+    <h2>Track record</h2>
     <ul class="timeline">
 
       <li class="timeline-item">
@@ -47,21 +104,20 @@
           <li>
             <strong>Built the data infra from zero.</strong> Designed the Databricks
             architecture for the Workplace Savings division — Asset Bundles for
-            deployment, self-hosted GitHub Actions runners for CI/CD. Nothing existed before.
+            deployment, self-hosted GitHub Actions runners for CI/CD.
           </li>
           <li>
-            <strong>dbt pipelines the finance team trusts.</strong> Modelled and shipped
-            analytics for the Head of DC Pensions and Finance groups — the kind of
-            reports that go straight to leadership without a sanity check.
+            <strong>dbt pipelines the finance team trusts.</strong> Analytics for
+            the Head of DC Pensions and Finance — reports that go to leadership
+            without a sanity check.
           </li>
           <li>
-            <strong>Python CLI that replaced a mess of scripts.</strong> Wrote a
-            comprehensive CLI application for data preprocessing — one command instead
-            of six manual steps stitched together with hope.
+            <strong>Python CLI replacing a mess of scripts.</strong> One command
+            instead of six manual steps stitched together with hope.
           </li>
           <li>
-            <strong>Investment tooling.</strong> Portfolio rebalancing monitor and fund
-            performance tracker that gave the Investment team meaningful capacity back.
+            <strong>Investment tooling.</strong> Portfolio rebalancing monitor and
+            fund performance tracker that gave the Investment team meaningful capacity back.
           </li>
         </ul>
       </li>
@@ -71,20 +127,9 @@
         <p class="timeline-role">Data Analyst — Workplace Savings</p>
         <p class="timeline-company">Mercer Ltd · London</p>
         <ul>
-          <li>
-            <strong>Automated the manual stuff.</strong> Python scripts replaced
-            repetitive MI reporting processes — less copy-paste, more actual analysis.
-          </li>
-          <li>
-            <strong>Sales Pipeline Tracker.</strong> Built and maintained the Power BI
-            dashboard that the sales team actually uses — one of those that gets
-            printed and put on walls.
-          </li>
-          <li>
-            <strong>Data quality processes.</strong> Implemented controls to ensure
-            accuracy and auditability of financial data — because in regulated finance,
-            "probably right" isn't good enough.
-          </li>
+          <li><strong>Automated the manual stuff.</strong> Python scripts replaced repetitive MI reporting processes.</li>
+          <li><strong>Sales Pipeline Tracker.</strong> Power BI dashboard the sales team actually uses — printed and put on walls.</li>
+          <li><strong>Data quality processes.</strong> Controls for accuracy and auditability of financial data in a regulated environment.</li>
         </ul>
       </li>
 
@@ -94,14 +139,14 @@
         <p class="timeline-company">Bloomberg LP · London</p>
         <ul>
           <li>
-            <strong>Fixed Income database at scale.</strong> Managed the end-to-end
-            data lifecycle for a securities database relied on by 325,000+ traders,
-            analysts, and portfolio managers globally. It had to be right.
+            <strong>Fixed Income database at scale.</strong> End-to-end data lifecycle
+            for a securities database relied on by 325,000+ traders, analysts, and
+            portfolio managers globally.
           </li>
           <li>
-            <strong>Automated validation and reconciliation.</strong> Designed rules
-            and processes to catch data quality issues before they propagated — global
-            bond data, zero tolerance for drift.
+            <strong>Automated validation and reconciliation.</strong> Rules and processes
+            to catch data quality issues before they propagated — global bond data,
+            zero tolerance for drift.
           </li>
         </ul>
       </li>
@@ -109,42 +154,7 @@
     </ul>
   </section>
 
-  {# ── Projects ─────────────────────────────────────────────────────────────── #}
-  <section class="about-section">
-    <h2>Projects</h2>
-    <ul class="timeline">
-
-      <li class="timeline-item">
-        <p class="timeline-period">Side project</p>
-        <p class="timeline-role">Investor Reporting App</p>
-        <p class="timeline-company">Streamlit · Python</p>
-        <ul>
-          <li>Financial data visualisation app built with Streamlit — fast to iterate, useful for exploring portfolio metrics without spinning up a BI tool.</li>
-        </ul>
-      </li>
-
-      <li class="timeline-item">
-        <p class="timeline-period">Open source</p>
-        <p class="timeline-role">Selene</p>
-        <p class="timeline-company">GitHub · Python</p>
-        <ul>
-          <li>Open-source data project. Available on <a href="{{ site_meta.github }}" style="color: var(--accent);">GitHub</a>.</li>
-        </ul>
-      </li>
-
-      <li class="timeline-item">
-        <p class="timeline-period">Ongoing</p>
-        <p class="timeline-role">Home Lab</p>
-        <p class="timeline-company">Ubuntu Server · Docker · Self-hosted</p>
-        <ul>
-          <li>Personal Ubuntu Server running self-hosted tooling, infrastructure experiments, and whatever new stack I'm currently breaking. Treated like production — because that's how you learn.</li>
-        </ul>
-      </li>
-
-    </ul>
-  </section>
-
-  {# ── Certifications ───────────────────────────────────────────────────────── #}
+  {# ── Certifications ────────────────────────────────────────────────────────── #}
   <section class="about-section">
     <h2>Certifications &amp; Education</h2>
     <div class="cert-grid">

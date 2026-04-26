@@ -88,6 +88,17 @@ main { flex: 1; }
   background: var(--accent-subtle);
 }
 
+.site-nav .nav-auth-link {
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  margin-left: 0.5rem;
+}
+
+.site-nav .nav-auth-link:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
 /* ── Banner ───────────────────────────────────────────────────────────────── */
 .banner-container {
   position: relative;

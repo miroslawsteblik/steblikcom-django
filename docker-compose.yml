@@ -3,6 +3,8 @@ services:
     build: .
     restart: unless-stopped
     env_file: .env
+    environment:
+      - EMAIL_HOST_PASSWORD
     volumes:
       - db_data:/app/data
     expose:

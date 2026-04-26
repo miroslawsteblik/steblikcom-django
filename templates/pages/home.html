@@ -4,18 +4,76 @@
 {% block content %}
   <section class="hero">
     <div class="hero-eyebrow">
-      <span class="terminal-prompt">~/portfolio $ whoami</span>
+      <span class="terminal-prompt">~/data-engineering-lab $ whoami</span>
     </div>
-    <h1>{{ site_meta.full_name }}</h1>
-    <p class="tagline">{{ site_meta.tagline }}</p>
+    <h1>Data Engineering Lab</h1>
+    <p class="tagline">Pipelines. Courses. Consulting.</p>
     <p class="hero-bio">
-      I build data pipelines for investment firms and break things in my
-      homelab for fun. This site is a running log of projects I've shipped
-      and things I've learned along the way.
+      A hands-on resource for data engineers — built by someone who has shipped
+      production pipelines at Bloomberg and Mercer. Learn through real-world
+      write-ups, access members-only deep-dives, or bring me in to solve your
+      data infrastructure problems.
     </p>
     <div class="hero-links">
-      <a href="{% url 'blog:post_list' %}" class="btn btn-primary">Read the blog</a>
-      <a href="{% url 'pages:about' %}" class="btn btn-ghost">About me</a>
+      {% if request.user.is_authenticated %}
+        <a href="{% url 'blog:post_list' %}" class="btn btn-primary">Members area</a>
+        <a href="{% url 'profile' %}" class="btn btn-ghost">My dashboard</a>
+      {% else %}
+        <a href="{% url 'account_signup' %}" class="btn btn-primary">Join free</a>
+        <a href="{% url 'blog:post_list' %}" class="btn btn-ghost">Read the blog</a>
+      {% endif %}
     </div>
   </section>
+
+  {# ── Value props ──────────────────────────────────────────────────────────── #}
+  <section class="value-props">
+    <div class="value-card">
+      <div class="value-icon">📚</div>
+      <h3>Learn</h3>
+      <p>Deep-dive articles and members-only guides on dbt, Polars, Kafka, and modern data stack architecture.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🔬</div>
+      <h3>Lab notes</h3>
+      <p>Honest write-ups from a working homelab — the experiments, the failures, and what actually ships to production.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🏗️</div>
+      <h3>Hire</h3>
+      <p>Available for freelance engagements and consulting. I build data infrastructure that investment teams trust with real numbers.</p>
+      <a href="{% url 'pages:experience' %}" class="value-link">See my work →</a>
+    </div>
+  </section>
+
+  {# ── Recent posts ─────────────────────────────────────────────────────────── #}
+  {% if recent_posts %}
+    <section class="recent-posts">
+      <h2 class="recent-posts-heading">Recent posts</h2>
+      <ul class="project-grid">
+        {% for post in recent_posts %}
+          <li class="project-card">
+            <a href="{% url 'blog:post_detail' post.slug %}" tabindex="-1" aria-hidden="true">
+              <img src="{% if post.card_image_url %}{{ post.card_image_url }}{% else %}{% static 'img/logo_python.jpeg' %}{% endif %}"
+                   alt=""
+                   class="card-image"
+                   loading="lazy">
+            </a>
+            <div class="project-card-body">
+              <h3>
+                <a href="{% url 'blog:post_detail' post.slug %}">{{ post.title }}</a>
+                {% if post.premium %}<span class="premium-badge">🔒 Members</span>{% endif %}
+              </h3>
+              <p class="meta">
+                <time datetime="{{ post.date|date:'Y-m-d' }}">{{ post.date|date:"N j, Y" }}</time>
+              </p>
+              {% if post.summary %}<p>{{ post.summary }}</p>{% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+      <p class="recent-posts-more">
+        <a href="{% url 'blog:post_list' %}">All posts →</a>
+      </p>
+    </section>
+  {% endif %}
 {% endblock %}
