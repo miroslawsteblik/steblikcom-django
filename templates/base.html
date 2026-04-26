@@ -9,14 +9,21 @@
       {% block title %}{{ site_meta.name }}{% endblock %}
     </title>
     <meta name="description" content="{% block meta_description %}{{ site_meta.tagline }}{% endblock %}">
+    <meta name="author" content="{{ site_meta.full_name }}">
+    <meta name="theme-color" content="#2f81f7">
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
     {# Open Graph / social previews — uses block overrides where set, falls back to site defaults #}
+    <meta property="og:site_name" content="{{ site_meta.name }}">
+    <meta property="og:locale" content="en_GB">
     <meta property="og:title" content="{% block og_title %}{{ site_meta.name }}{% endblock %}">
     <meta property="og:description" content="{% block og_description %}{{ site_meta.tagline }}{% endblock %}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     {% block og_image %}
       <meta property="og:image" content="{% static 'img/og-default.png' %}">
     {% endblock %}
+    {# Twitter/X cards — falls back to og:* for title/description/image #}
+    <meta name="twitter:card" content="summary_large_image">
     {# Favicons  #}
     <link rel="icon" href="{% static 'img/favicon/favicon.svg' %}" sizes="any">
     {% comment %} <link rel="icon" href="{% static 'img/favicon/icon.svg' %}" type="image/svg+xml"> {% endcomment %}

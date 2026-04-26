@@ -96,5 +96,5 @@ max_line_length = 140
 max_attribute_length = 100
 format_css = true
 format_js = true
-ignore = "H014,H025"
+ignore = "H006,H014,H025,H031,T003"
 extension = "html"

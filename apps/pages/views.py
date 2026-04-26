@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 from django.views.decorators.cache import cache_page
 
@@ -24,6 +25,8 @@ def experience(request):
 
 @cache_page(60 * 15)
 def references(request):
+    raise Http404
+
     refs = [
         {
             "name": "Alice Chen",
