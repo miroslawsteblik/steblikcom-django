@@ -1,12 +1,30 @@
+# Python / uv
+__pycache__/
+*.py[cod]
+.venv/
+.ruff_cache/
+.pytest_cache/
 .venv/
 __pycache__/
 *.pyc
+
+# Django
+*.sqlite3
+staticfiles/
+media/
 db.sqlite3
 db.sqlite3-journal
 db.sqlite3-wal
 db.sqlite3-shm
 data/
+_archive/
+
+# Env
 .env
+.env.*
+!.env.example
+
+
 staticfiles/
 media/
 .ruff_cache/
@@ -18,3 +36,9 @@ media/
 !.vscode/extensions.json
 !.vscode/launch.json
 !.vscode/tasks.json
+
+todo
+# Claude
+CLAUDE.local.md
+.claude/local/
+.claude/history/

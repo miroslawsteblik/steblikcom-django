@@ -3,17 +3,38 @@
 Called once on model save; output is stored in the DB. Safe to trust
 the cached HTML on render because bleach runs here.
 """
+
 import bleach
 import markdown2
 
 ALLOWED_TAGS = [
-    "p", "h1", "h2", "h3", "h4", "h5", "h6",
-    "ul", "ol", "li",
-    "a", "em", "strong", "del", "ins",
-    "code", "pre",
-    "blockquote", "hr", "br",
+    "p",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+    "ul",
+    "ol",
+    "li",
+    "a",
+    "em",
+    "strong",
+    "del",
+    "ins",
+    "code",
+    "pre",
+    "blockquote",
+    "hr",
+    "br",
     "img",
-    "table", "thead", "tbody", "tr", "th", "td",
+    "table",
+    "thead",
+    "tbody",
+    "tr",
+    "th",
+    "td",
 ]
 ALLOWED_ATTRS = {
     "a": ["href", "title", "rel"],

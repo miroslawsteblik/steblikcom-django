@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+{% block title %}Terms of Service — {{ site_meta.name }}{% endblock %}
+{% block meta_description %}Terms of service for steblik.com — the rules that govern your use of the site, account, and content.{% endblock %}
+{% block content %}
+  <article class="prose">
+    <h1>Terms of Service</h1>
+    <p class="meta">Last updated: 28 April 2026</p>
+
+    <p>
+      These Terms of Service ("Terms") govern your use of <strong>steblik.com</strong>
+      (the "site"), operated by Miroslaw Steblik, a sole trader based in the
+      United Kingdom ("we", "us", "operator"). By creating an account or
+      otherwise using the site, you agree to these Terms. If you do not agree,
+      do not use the site.
+    </p>
+
+    <p>
+      These Terms should be read together with the
+      <a href="{% url 'pages:privacy' %}">Privacy Policy</a> and the
+      <a href="{% url 'pages:legal' %}">Legal information</a> page, which form part
+      of the agreement between you and the operator.
+    </p>
+
+    <h2>1. About the site</h2>
+    <p>
+      The site publishes articles, resources, and other content on data
+      engineering, investment data, and related technical topics. Some content
+      is freely available; other content may require a registered account or,
+      in the future, a paid subscription.
+    </p>
+
+    <h2>2. Eligibility</h2>
+    <p>
+      You must be at least <strong>18 years old</strong> to create an account.
+      By registering, you confirm that you meet this requirement and that the
+      information you provide is accurate. The operator reserves the right to
+      verify eligibility and to suspend or close accounts that do not comply.
+    </p>
+
+    <h2>3. Accounts</h2>
+    <ul>
+      <li>You are responsible for maintaining the confidentiality of your password and for all activity under your account.</li>
+      <li>Notify the operator promptly at <a href="mailto:{{ site_meta.email }}">{{ site_meta.email }}</a> if you suspect unauthorised access to your account.</li>
+      <li>Each account is for a single individual. You may not share your account credentials with anyone else.</li>
+      <li>You may close your account at any time by emailing the address above. Account closure is processed in accordance with the <a href="{% url 'pages:privacy' %}">Privacy Policy</a>.</li>
+    </ul>
+
+    <h2>4. Acceptable use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Use the site in any way that breaches applicable law or regulation.</li>
+      <li>Attempt to gain unauthorised access to the site, its server, the database, or any account other than your own.</li>
+      <li>Interfere with the operation of the site, including by introducing malware, conducting denial-of-service attacks, or probing for vulnerabilities without prior written consent.</li>
+      <li>Use the site to send spam, unsolicited communications, or harassing messages.</li>
+      <li>Misrepresent your identity or impersonate any person or entity.</li>
+      <li>Attempt to extract personal data about other users.</li>
+    </ul>
+    <p>
+      Security research conducted in good faith and disclosed responsibly is
+      welcomed; please contact the operator before testing.
+    </p>
+
+    <h2>5. Intellectual property</h2>
+    <h3>Site content</h3>
+    <p>
+      All content published on the site — including articles, code samples,
+      diagrams, graphics, and the underlying design — is the property of
+      Miroslaw Steblik or the respective rights holders, and is protected by
+      copyright and other intellectual property laws.
+    </p>
+    <p>
+      Unless explicitly stated otherwise on a specific piece of content, all
+      rights are reserved. You may view and read content for personal,
+      non-commercial purposes. You may share short quotations and links with
+      proper attribution and a link back to the original page. Beyond this,
+      you may not reproduce, republish, redistribute, or create derivative
+      works from site content without prior written permission.
+    </p>
+    <h3>Code samples</h3>
+    <p>
+      Where a code sample is published with an explicit open-source license
+      (for example, MIT or Apache 2.0), that license governs the use of that
+      sample and overrides the general restrictions above.
+    </p>
+    <h3>Your feedback</h3>
+    <p>
+      If you send the operator suggestions, ideas, or feedback about the
+      site, you grant a non-exclusive, royalty-free, worldwide, perpetual
+      license to use that feedback for any purpose, without compensation or
+      attribution.
+    </p>
+
+    <h2>6. Premium content (future)</h2>
+    <p>
+      The site does not currently offer paid subscriptions. If paid premium
+      content is introduced in the future, additional terms will apply at
+      the point of purchase, including pricing, billing, cancellation, and
+      refund terms. Where premium content is provided as digital content
+      delivered immediately, you may be asked to consent to immediate supply
+      and to acknowledge that the statutory 14-day cancellation right under
+      the Consumer Contracts (Information, Cancellation and Additional
+      Charges) Regulations 2013 will be lost upon supply commencing.
+    </p>
+
+    <h2>7. Newsletter and marketing communications</h2>
+    <p>
+      Marketing emails, including newsletters, are sent only to users who
+      have explicitly opted in. You can withdraw consent at any time using
+      the unsubscribe link in any marketing email or by emailing
+      <a href="mailto:{{ site_meta.email }}">{{ site_meta.email }}</a>.
+      Withdrawing marketing consent does not affect transactional emails
+      necessary for the operation of your account.
+    </p>
+
+    <h2>8. Freelance services</h2>
+    <p>
+      The site may advertise freelance and consulting services offered by
+      Miroslaw Steblik. Information presented on the site about these
+      services is for general information only and does not constitute a
+      binding offer. Any engagement is governed by a separate written
+      contract executed between the operator and the client. These Terms
+      do not apply to such engagements except where expressly incorporated.
+    </p>
+
+    <h2>9. No professional advice</h2>
+    <p>
+      Content on the site is provided for general informational and
+      educational purposes only. It does not constitute professional advice
+      of any kind, including but not limited to <strong>investment, financial,
+      tax, or legal advice</strong>. References to financial markets,
+      investment data, or trading systems are technical in nature and must
+      not be interpreted as recommendations to buy, sell, or hold any
+      financial instrument. You should obtain advice from an appropriately
+      qualified professional before acting on any information from the site.
+    </p>
+
+    <h2>10. Third-party links and services</h2>
+    <p>
+      The site may link to or rely on third-party services (for example,
+      email delivery providers). The operator is not responsible for the
+      content, accuracy, or practices of any third party. Use of those
+      services is governed by their own terms and policies.
+    </p>
+
+    <h2>11. Service availability</h2>
+    <p>
+      The site is provided on an "as is" and "as available" basis. The
+      operator does not guarantee uninterrupted, error-free, or secure
+      access, and may suspend or modify any part of the site at any time,
+      with or without notice, including for maintenance, security, or
+      operational reasons.
+    </p>
+
+    <h2>12. Suspension and termination</h2>
+    <p>
+      The operator may suspend or close any account that, in its reasonable
+      view, has breached these Terms, presents a security risk, or is being
+      used unlawfully. Where practical, you will be notified and given an
+      opportunity to address the issue first; in serious cases, suspension
+      may be immediate. On termination, your right to access the site
+      ceases, and your data is handled in accordance with the
+      <a href="{% url 'pages:privacy' %}">Privacy Policy</a>.
+    </p>
+
+    <h2>13. Disclaimers</h2>
+    <p>
+      To the fullest extent permitted by law, the operator disclaims all
+      warranties, whether express or implied, including warranties of
+      merchantability, fitness for a particular purpose, accuracy, and
+      non-infringement, in respect of the site and its content.
+    </p>
+    <p>
+      Nothing in these Terms excludes or limits liability for death or
+      personal injury caused by negligence, for fraud or fraudulent
+      misrepresentation, or for any liability that cannot be excluded or
+      limited under English law.
+    </p>
+
+    <h2>14. Limitation of liability</h2>
+    <p>
+      Subject to the paragraph above, the operator shall not be liable for
+      any indirect, incidental, special, consequential, or punitive
+      damages, or for any loss of profits, revenue, data, business
+      opportunity, or goodwill, arising out of or in connection with your
+      use of the site, whether based in contract, tort, statute, or
+      otherwise.
+    </p>
+    <p>
+      Where the site is used by a consumer, statutory rights under the
+      Consumer Rights Act 2015 are not affected by these Terms.
+    </p>
+
+    <h2>15. Indemnity</h2>
+    <p>
+      Where you use the site for purposes related to a trade, business,
+      craft, or profession, you agree to indemnify the operator against
+      any claims, losses, costs, and expenses arising from your breach of
+      these Terms or your unlawful use of the site. This clause does not
+      apply to consumers acting outside the course of a business.
+    </p>
+
+    <h2>16. Changes to these Terms</h2>
+    <p>
+      These Terms may be updated from time to time. Material changes will
+      be notified to registered users by email and will take effect no less
+      than 14 days after notification, unless the change is required by law
+      or relates to a new feature, in which case the change may take effect
+      sooner. The "last updated" date above always reflects the current
+      version. Continued use of the site after a change takes effect
+      constitutes acceptance of the updated Terms.
+    </p>
+
+    <h2>17. Governing law and jurisdiction</h2>
+    <p>
+      These Terms are governed by the laws of <strong>England and Wales</strong>.
+      Disputes shall be subject to the exclusive jurisdiction of the courts
+      of England and Wales, except that consumers resident elsewhere in the
+      United Kingdom retain the right to bring proceedings in their local
+      courts.
+    </p>
+
+    <h2>18. Severability and entire agreement</h2>
+    <p>
+      If any provision of these Terms is held to be unenforceable, the
+      remaining provisions remain in full force. These Terms, together
+      with the <a href="{% url 'pages:privacy' %}">Privacy Policy</a> and the
+      <a href="{% url 'pages:legal' %}">Legal information</a> page, constitute
+      the entire agreement between you and the operator regarding your
+      use of the site.
+    </p>
+
+    <h2>19. Contact</h2>
+    <p>
+      Questions about these Terms can be sent to
+      <a href="mailto:{{ site_meta.email }}">{{ site_meta.email }}</a>.
+    </p>
+  </article>
+{% endblock %}

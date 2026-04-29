@@ -1,0 +1,16 @@
+---
+title: "Incremental dbt models without losing your mind"
+slug: dbt-incremental
+date: 2026-02-12
+tags: [dbt, data-engineering]
+draft: true
+summary: A few patterns for incremental models that survive backfills.
+premium: true
+---
+
+Body in markdown here. Code blocks render with Pygments.
+
+​`python
+import polars as pl
+df = pl.read_parquet("trades.parquet")
+​`

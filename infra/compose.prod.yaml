@@ -1,0 +1,29 @@
+services:
+  web:
+    environment:
+      DJANGO_SETTINGS_MODULE: config.settings.prod
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "14"          # ~14 days of daily-rotated logs
+    # No port mapping in prod — front it with nginx/Caddy/Traefik on the host.
+    expose:
+      - "8000"
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - web
+
+volumes:
+  caddy_data:
+  caddy_config:
