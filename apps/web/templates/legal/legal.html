@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Legal information — {{ site_meta.name }}{% endblock %}
+{% block meta_description %}Legal information for steblik.com — operator details, registration, and how to get in touch.{% endblock %}
+{% block content %}
+  <article class="prose">
+    <h1>Legal information</h1>
+    <p class="meta">Last updated: 28 April 2026</p>
+
+    <p>
+      The information on this page is provided in accordance with the
+      Electronic Commerce (EC Directive) Regulations 2002 and the
+      Provision of Services Regulations 2009.
+    </p>
+
+    <h2>Operator</h2>
+    <ul>
+      <li><strong>Name:</strong> Miroslaw Steblik</li>
+      <li><strong>Status:</strong> Sole trader, established in the United Kingdom</li>
+      <li><strong>Trading address:</strong> [TODO: virtual office / business address — line 1, line 2, postcode, United Kingdom]</li>
+      <li><strong>Email:</strong> <a href="mailto:{{ site_meta.email }}">{{ site_meta.email }}</a></li>
+      <li><strong>Website:</strong> <a href="https://steblik.com">https://steblik.com</a></li>
+    </ul>
+
+    <h2>VAT</h2>
+    <p>
+      Miroslaw Steblik is not currently registered for UK VAT. Where this
+      changes, the VAT registration number will be added here and to
+      relevant invoices.
+    </p>
+
+    <h2>Data protection</h2>
+    <p>
+      Miroslaw Steblik is the data controller for personal data processed
+      via this site, registered with the Information Commissioner's Office
+      under registration number <strong>[TODO: ICO registration number]</strong>.
+      Details of how personal data is handled are set out in the
+      <a href="{% url 'pages:privacy' %}">Privacy Policy</a>.
+    </p>
+
+    <h2>Professional services</h2>
+    <p>
+      Freelance data engineering and consulting services are offered under
+      the same operator name. Service engagements are governed by a
+      separate written contract entered into with the client and are not
+      subject to the website
+      <a href="{% url 'pages:terms' %}">Terms of Service</a>, except where
+      expressly incorporated.
+    </p>
+    <p>
+      <strong>Professional indemnity insurance:</strong>
+      [TODO: insurer name and policy reference, or remove this paragraph
+      until insurance is in place.]
+    </p>
+
+    <h2>Regulatory status</h2>
+    <p>
+      Miroslaw Steblik is not a regulated financial adviser and is not
+      authorised by the Financial Conduct Authority. Content on the site
+      and any services offered are technical in nature and do not
+      constitute financial, investment, tax, or legal advice. See clause 9
+      of the <a href="{% url 'pages:terms' %}">Terms of Service</a> for further
+      detail.
+    </p>
+
+    <h2>Complaints</h2>
+    <p>
+      If you have a complaint about the site or services offered through
+      it, please email <a href="mailto:{{ site_meta.email }}">{{ site_meta.email }}</a>
+      with the subject line "Complaint" and a description of the issue.
+      Complaints are acknowledged within 5 working days and resolved as
+      soon as reasonably practicable.
+    </p>
+    <p>
+      If you are a UK or EU consumer and we are unable to resolve a
+      complaint to your satisfaction, you may also be able to use an
+      alternative dispute resolution service. The European Commission's
+      Online Dispute Resolution platform is available at
+      <a href="https://ec.europa.eu/consumers/odr" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a>.
+    </p>
+
+    <h2>Reporting abuse or security issues</h2>
+    <p>
+      To report abuse, copyright infringement, or a suspected security
+      vulnerability, email <a href="mailto:{{ site_meta.email }}">{{ site_meta.email }}</a>.
+      Responsible disclosure of security issues is welcomed and
+      acknowledged.
+    </p>
+  </article>
+{% endblock %}

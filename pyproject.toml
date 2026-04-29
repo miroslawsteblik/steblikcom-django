@@ -21,6 +21,7 @@ dependencies = [
     "gunicorn>=23.0",
     "resend>=2.29.0",
     "django-extensions>=4.1",
+    "django-htmx>=1.27.0",
 ]
 
 [dependency-groups]
@@ -48,10 +49,11 @@ packages = ["apps", "config"]
 
 # ── pytest ──────────────────────────────────────────────────────────────────
 [tool.pytest.ini_options]
-DJANGO_SETTINGS_MODULE = "config.settings"
+DJANGO_SETTINGS_MODULE = "config.settings.test"
 python_files = ["test_*.py", "*_test.py"]
 addopts = "--strict-markers -q"
-
+pythonpath = ["apps/web"]
+testpaths = ["apps/web"]
 
 # ── bandit ───────────────────────────────────────────────────────────────────
 [tool.bandit]
@@ -76,7 +78,7 @@ select = [
     "ANN", # flake8-annotations (type hints)
 ]
 # ANN002/003 (*args/**kwargs) and ANN204 (special methods) are noise; everything else enforced
-ignore = ["ANN002", "ANN003", "ANN204", "ANN201"]
+ignore = ["ANN001","ANN002", "ANN003", "ANN204", "ANN201"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["ANN"]                 # no annotation requirement in test functions

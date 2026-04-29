@@ -10,6 +10,12 @@ install:
 run:
     uv run python manage.py runserver
 
+run-dev:
+    docker compose -f infra/compose.yaml -f infra/compose.dev.yaml up
+
+run-prod:
+    docker compose -f infra/compose.yaml -f infra/compose.prod.yaml up -d
+
 # add app
 add app="":
     uv run python manage.py startapp {{app}}
@@ -20,7 +26,9 @@ mm app="":
 
 # Apply migrations
 migrate:
-    uv run python manage.py migrate
+    # uv run python manage.py migrate
+    docker compose -f infra/compose.yaml -f infra/compose.dev.yaml exec web uv run python apps/web/manage.py migrate
+
 
 # Open Django shell
 shell:

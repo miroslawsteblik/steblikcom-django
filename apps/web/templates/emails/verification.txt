@@ -1,0 +1,10 @@
+Hello,
+
+To verify the email address used to sign up at steblik.com, follow this link:
+
+{{ verification_url }}
+
+If you did not request this, you can safely ignore the message.
+
+—
+steblik.com

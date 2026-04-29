@@ -1,0 +1,17 @@
+services:
+  web:
+    build:
+      target: builder           # use the builder stage so `uv` is available
+    command:
+      - uv
+      - run
+      - python
+      - apps/web/manage.py
+      - runserver
+      - 0.0.0.0:8000
+    environment:
+      DJANGO_SETTINGS_MODULE: config.settings.dev
+    volumes:
+      - ../:/app
+    ports:
+      - "8000:8000"
