@@ -1,0 +1,9 @@
+Hi {% if subscriber.first_name %}{{ subscriber.first_name }}{% else %}there{% endif %},
+
+{{ body_markdown }}
+
+—
+You're receiving this because you opted in to updates from steblik.com.
+Unsubscribe: {{ unsubscribe_url }}
+
+© {% now "Y" %} {{ operator_name }}{% if operator_address %} · {{ operator_address }}{% endif %}

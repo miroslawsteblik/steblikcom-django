@@ -1,0 +1,12 @@
+Welcome to steblik.com{% if user.first_name %}, {{ user.first_name }}{% endif %}!
+
+Your email is verified and your account is active.
+
+What you can do now:
+  - Read the blog: https://steblik.com/blog/
+  - Manage your account: https://steblik.com/me/
+
+More coming soon — courses and premium content are on the way.
+
+—
+steblik.com

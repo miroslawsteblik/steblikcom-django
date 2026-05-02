@@ -1,126 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="light">
-  <title>{{ subject }}</title>
-  <style>
-    body { margin: 0; padding: 0; background-color: #f6f8fa; }
-    a { color: #0969da; }
-    @media only screen and (max-width: 620px) {
-      .wrapper { padding: 24px 12px !important; }
-      .card    { padding: 24px 20px !important; }
-      .title   { font-size: 20px !important; }
-      .tags    { display: none; }
-    }
-  </style>
-</head>
-<body style="margin:0;padding:0;background-color:#f6f8fa;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+{% extends "emails/_base.html" %}
+{% block title %}{{ announcement.subject|default:subject }}{% endblock %}
 
-  <table width="100%" cellpadding="0" cellspacing="0" role="presentation"
-         style="background-color:#f6f8fa;">
-    <tr>
-      <td align="center" class="wrapper" style="padding:40px 16px;">
+{% block card_content %}
+  <p style="margin:0 0 20px;font-size:16px;line-height:1.65;color:#424a53;">
+    Hi {{ display_name }},
+  </p>
 
-        <table width="600" cellpadding="0" cellspacing="0" role="presentation"
-               style="max-width:600px;width:100%;">
+  <!-- Label -->
+  <p style="margin:0 0 12px;">
+    <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;
+                 text-transform:uppercase;color:#656d76;">New post</span>
+  </p>
 
-          <!-- Brand header -->
-          <tr>
-            <td style="padding:0 0 28px;">
-              <a href="{{ site_url }}"
-                 style="font-family:Inter,-apple-system,sans-serif;font-size:18px;font-weight:700;
-                        color:#0d1117;text-decoration:none;letter-spacing:-0.3px;">
-                &lt;/&gt;&nbsp;steblik.com
-              </a>
-            </td>
-          </tr>
+  <!-- Tags -->
+  {% if post.tags %}
+  <p style="margin:0 0 16px;">
+    {% for tag in post.tags %}
+    <span style="display:inline-block;font-size:12px;font-weight:500;
+                 color:#0969da;background-color:#ddf4ff;
+                 border:1px solid #b6e3ff;border-radius:20px;
+                 padding:2px 10px;margin-right:6px;">#{{ tag }}</span>
+    {% endfor %}
+  </p>
+  {% endif %}
 
-          <!-- Label -->
-          <tr>
-            <td style="padding:0 0 12px;">
-              <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;
-                           text-transform:uppercase;color:#656d76;">
-                New post
-              </span>
-            </td>
-          </tr>
+  <!-- Title -->
+  <h1 style="margin:0 0 14px;font-size:24px;font-weight:700;line-height:1.3;
+             color:#0d1117;letter-spacing:-0.4px;">
+    {{ post.title }}
+  </h1>
 
-          <!-- Post card -->
-          <tr>
-            <td class="card"
-                style="background-color:#ffffff;border:1px solid #d0d7de;border-radius:8px;
-                       padding:32px 36px;box-shadow:0 1px 3px rgba(31,35,40,0.06);">
+  <!-- Date -->
+  <p style="margin:0 0 18px;font-size:13px;color:#656d76;">
+    {{ post.date|date:"j F Y" }}
+  </p>
 
-              <!-- Tags -->
-              {% if post.tags %}
-              <p class="tags" style="margin:0 0 16px;">
-                {% for tag in post.tags %}
-                <span style="display:inline-block;font-size:12px;font-weight:500;
-                             color:#0969da;background-color:#ddf4ff;
-                             border:1px solid #b6e3ff;border-radius:20px;
-                             padding:2px 10px;margin-right:6px;">#{{ tag }}</span>
-                {% endfor %}
-              </p>
-              {% endif %}
+  <!-- Summary -->
+  <p style="margin:0 0 28px;font-size:16px;line-height:1.65;color:#424a53;">
+    {{ post.summary }}
+  </p>
 
-              <!-- Title -->
-              <h1 class="title"
-                  style="margin:0 0 14px;font-size:24px;font-weight:700;line-height:1.3;
-                         color:#0d1117;letter-spacing:-0.4px;">
-                {{ post.title }}
-              </h1>
+  <!-- CTA -->
+  <a href="{{ post_url }}"
+     style="display:inline-block;background-color:#0969da;color:#ffffff;
+            font-size:15px;font-weight:600;text-decoration:none;
+            padding:11px 24px;border-radius:6px;letter-spacing:0.01em;">
+    Read post &rarr;
+  </a>
+{% endblock %}
 
-              <!-- Date -->
-              <p style="margin:0 0 18px;font-size:13px;color:#656d76;">
-                {{ post.date|date:"j F Y" }}
-              </p>
-
-              <!-- Summary -->
-              <p style="margin:0 0 28px;font-size:16px;line-height:1.65;color:#424a53;">
-                {{ post.summary }}
-              </p>
-
-              <!-- CTA -->
-              <a href="{{ post_url }}"
-                 style="display:inline-block;background-color:#0969da;color:#ffffff;
-                        font-size:15px;font-weight:600;text-decoration:none;
-                        padding:11px 24px;border-radius:6px;letter-spacing:0.01em;">
-                Read post &rarr;
-              </a>
-
-            </td>
-          </tr>
-
-          <!-- Divider -->
-          <tr>
-            <td style="padding:32px 0 0;">
-              <hr style="border:none;border-top:1px solid #d0d7de;margin:0;">
-            </td>
-          </tr>
-
-          <!-- Footer -->
-          <tr>
-            <td style="padding:20px 0 0;text-align:center;">
-              <p style="margin:0 0 6px;font-size:13px;color:#656d76;line-height:1.5;">
-                You're receiving this because you have an account on
-                <a href="{{ site_url }}" style="color:#656d76;">steblik.com</a>.
-              </p>
-              <p style="margin:0;font-size:13px;color:#656d76;">
-                <a href="{{ profile_url }}" style="color:#8b949e;text-decoration:underline;">
-                  Manage preferences
-                </a>
-                &nbsp;&middot;&nbsp;
-                &copy; {% now "Y" %} steblik.com
-              </p>
-            </td>
-          </tr>
-
-        </table>
-      </td>
-    </tr>
-  </table>
-
-</body>
-</html>
+{% block footer %}
+  <p style="margin:0 0 6px;font-size:13px;color:#656d76;line-height:1.5;">
+    You're receiving this because you opted in to updates from
+    <a href="{{ site_url }}" style="color:#656d76;">steblik.com</a>.
+  </p>
+  <p style="margin:0 0 6px;font-size:13px;color:#656d76;">
+    <a href="{{ unsubscribe_url }}" style="color:#8b949e;text-decoration:underline;">
+      Unsubscribe
+    </a>
+    &nbsp;&middot;&nbsp;
+    Miroslaw Steblik &middot; steblik.com
+  </p>
+  <p style="margin:0;font-size:13px;color:#8b949e;">
+    &copy; {% now "Y" %} Miroslaw Steblik
+  </p>
+{% endblock %}

@@ -18,10 +18,46 @@ class EmailAddressInline(admin.TabularInline):
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
     inlines = [EmailAddressInline]
-    list_display = ("email", "is_active", "is_staff", "date_joined", "last_login")
-    list_filter = ("is_active", "is_staff")
+    list_display = (
+        "email",
+        "is_active",
+        "is_staff",
+        "marketing_consent",
+        "date_joined",
+        "last_login",
+    )
+    list_filter = ("is_active", "is_staff", "marketing_consent")
     search_fields = ("email",)
     ordering = ("-date_joined",)
+
+    # username is removed from our User model; redefine fieldsets without it
+    fieldsets = (
+        (None, {"fields": ("email", "password")}),
+        ("Personal info", {"fields": ("first_name", "last_name")}),
+        ("Marketing", {"fields": ("marketing_consent",)}),
+        (
+            "Permissions",
+            {
+                "fields": (
+                    "is_active",
+                    "is_staff",
+                    "is_superuser",
+                    "groups",
+                    "user_permissions",
+                ),
+            },
+        ),
+        ("Important dates", {"fields": ("last_login", "date_joined")}),
+    )
+    add_fieldsets = (
+        (
+            None,
+            {
+                "classes": ("wide",),
+                "fields": ("email", "password1", "password2"),
+            },
+        ),
+    )
 
 
 class AnnouncementRecipientInline(admin.TabularInline):

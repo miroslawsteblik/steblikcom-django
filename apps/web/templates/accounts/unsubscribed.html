@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Unsubscribed — {{ site_meta.name }}{% endblock %}
+{% block banner %}{% endblock %}
+{% block content %}
+  <div class="auth-card">
+    <h1 class="auth-title">You're unsubscribed</h1>
+    <p class="auth-subtitle">
+      You won't receive any more marketing emails from steblik.com.
+      Your account remains active — you can re-enable emails from your
+      <a href="{% url 'profile' %}">dashboard</a> at any time.
+    </p>
+  </div>
+{% endblock %}

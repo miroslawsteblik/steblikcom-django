@@ -27,13 +27,27 @@ def tag_list(request: HttpRequest, tag: str) -> HttpResponse:
 
 
 def post_asset(_request: HttpRequest, slug: str, filename: str) -> FileResponse:
+    if ".." in slug or "/" in slug:
+        raise Http404
+
     post_dir = (POSTS_DIR / slug).resolve()
+    # Ensure post_dir is actually inside POSTS_DIR (slug could still escape)
+    try:
+        post_dir.relative_to(POSTS_DIR.resolve())
+    except ValueError:
+        raise Http404 from None
+
     asset_path = (post_dir / filename).resolve()
+    try:
+        asset_path.relative_to(post_dir)  # ValueError if outside
+    except ValueError:
+        raise Http404 from None
     # Prevent path traversal outside the post directory
     if not str(asset_path).startswith(str(post_dir) + "/"):
         raise Http404
     if not asset_path.is_file():
         raise Http404
+
     content_type, _ = mimetypes.guess_type(asset_path.name)
     return FileResponse(
         asset_path.open("rb"), content_type=content_type or "application/octet-stream"

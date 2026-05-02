@@ -29,12 +29,12 @@
         {% for radio in emailaddress_radios %}
           <input type="hidden" name="email" value="{{ radio.emailaddress.email }}">
         {% endfor %}
-        <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+        <div class="btn-row">
           <button type="submit" name="action_send" class="btn-primary">Re-send verification</button>
         </div>
       </form>
     {% endif %}
-    <p class="auth-divider" style="margin-top:1.5rem">
+    <p class="auth-divider mt-6">
       <a href="{% url 'profile' %}">← Back to dashboard</a>
     </p>
   </div>

@@ -1,10 +1,45 @@
+import uuid
+
 from django.conf import settings
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 
 
+class UserManager(BaseUserManager):
+    def create_user(self, email: str, password: str | None = None, **extra_fields) -> "User":
+        if not email:
+            raise ValueError("Email address is required")
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email: str, password: str | None = None, **extra_fields) -> "User":
+        extra_fields.setdefault("is_staff", True)
+        extra_fields.setdefault("is_superuser", True)
+        return self.create_user(email, password, **extra_fields)
+
+
 class User(AbstractUser):
-    pass
+    username = None  # type: ignore[assignment]  # email is the identifier
+    email = models.EmailField(unique=True)
+
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
+
+    objects = UserManager()  # type: ignore[assignment]
+
+    marketing_consent = models.BooleanField(
+        default=False,
+        help_text="User has explicitly opted in to marketing email (PECR).",
+    )
+    unsubscribe_token = models.UUIDField(
+        default=uuid.uuid4,
+        unique=True,
+        editable=False,
+        help_text="Stable token for one-click unsubscribe links (RFC 8058).",
+    )
 
 
 class Announcement(models.Model):

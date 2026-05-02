@@ -1,0 +1,23 @@
+{% extends "emails/_base.html" %}
+{% block title %}Verify your email — steblik.com{% endblock %}
+{% block card_content %}
+  <h1 style="margin:0 0 16px;font-size:22px;font-weight:700;color:#0d1117;letter-spacing:-0.3px;">
+    Verify your email address
+  </h1>
+  <p style="margin:0 0 12px;font-size:16px;line-height:1.65;color:#424a53;">
+    Thanks for signing up. Click the button below to confirm your address and activate your account.
+  </p>
+  <p style="margin:0 0 28px;font-size:16px;line-height:1.65;color:#424a53;">
+    The link expires in 3 days. If you didn't create an account, you can ignore this email.
+  </p>
+  <a href="{{ verification_url }}"
+     style="display:inline-block;background-color:#0969da;color:#ffffff;
+            font-size:15px;font-weight:600;text-decoration:none;
+            padding:11px 24px;border-radius:6px;letter-spacing:0.01em;">
+    Verify email address &rarr;
+  </a>
+  <p style="margin:24px 0 0;font-size:13px;color:#656d76;">
+    Or copy this link into your browser:<br>
+    <a href="{{ verification_url }}" style="color:#656d76;word-break:break-all;">{{ verification_url }}</a>
+  </p>
+{% endblock %}

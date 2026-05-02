@@ -1,0 +1,23 @@
+{% extends "emails/_base.html" %}
+{% block title %}Welcome to steblik.com{% endblock %}
+{% block card_content %}
+  <h1 style="margin:0 0 16px;font-size:22px;font-weight:700;color:#0d1117;letter-spacing:-0.3px;">
+    Welcome{% if user.first_name %}, {{ user.first_name }}{% endif %} 👋
+  </h1>
+  <p style="margin:0 0 12px;font-size:16px;line-height:1.65;color:#424a53;">
+    Your email is verified and your account is active. Here's what you can do now:
+  </p>
+  <ul style="margin:0 0 24px;padding-left:20px;font-size:16px;line-height:1.9;color:#424a53;">
+    <li>Read the <a href="https://steblik.com/blog/">blog</a> — data engineering, security, and homelab.</li>
+    <li>Check your <a href="https://steblik.com/me/">dashboard</a> to manage your account.</li>
+  </ul>
+  <p style="margin:0 0 28px;font-size:16px;line-height:1.65;color:#424a53;">
+    More coming soon — courses and premium content are on the way.
+  </p>
+  <a href="https://steblik.com/blog/"
+     style="display:inline-block;background-color:#0969da;color:#ffffff;
+            font-size:15px;font-weight:600;text-decoration:none;
+            padding:11px 24px;border-radius:6px;letter-spacing:0.01em;">
+    Browse the blog &rarr;
+  </a>
+{% endblock %}

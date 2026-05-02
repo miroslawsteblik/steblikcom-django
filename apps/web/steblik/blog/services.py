@@ -4,6 +4,7 @@ from datetime import date
 from functools import lru_cache
 from pathlib import Path
 
+import bleach
 import frontmatter
 import markdown
 from django.conf import settings
@@ -14,6 +15,41 @@ MD = markdown.Markdown(
     extensions=["fenced_code", "codehilite", "tables", "toc"],
     extension_configs={"codehilite": {"guess_lang": False, "css_class": "highlight"}},
 )
+
+ALLOWED_TAGS = bleach.sanitizer.ALLOWED_TAGS | {
+    "p",
+    "pre",
+    "code",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+    "blockquote",
+    "ul",
+    "ol",
+    "li",
+    "table",
+    "thead",
+    "tbody",
+    "tr",
+    "th",
+    "td",
+    "img",
+    "a",
+    "strong",
+    "em",
+    "hr",
+    "br",
+    "span",
+    "div",
+}
+ALLOWED_ATTRS = {
+    **bleach.sanitizer.ALLOWED_ATTRIBUTES,
+    "img": ["src", "alt"],
+    "a": ["href", "title"],
+}
 
 
 @dataclass(frozen=True)
@@ -59,6 +95,7 @@ def _load_post(path: Path) -> Post:
 
     MD.reset()
     html = MD.convert(fm.content)
+    html = bleach.clean(html, tags=ALLOWED_TAGS, attributes=ALLOWED_ATTRS, strip=True)
     if is_dir_post:
         html = _rewrite_image_srcs(html, slug)
 

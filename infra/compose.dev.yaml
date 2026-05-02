@@ -1,4 +1,5 @@
 services:
+
   web:
     build:
       target: builder           # use the builder stage so `uv` is available
