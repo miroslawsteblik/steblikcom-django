@@ -43,3 +43,4 @@ CLAUDE.local.md
 .claude/local/
 .claude/history/
 .claude/settings.local.json
+.claude/
