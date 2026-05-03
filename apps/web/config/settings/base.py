@@ -21,7 +21,7 @@ if env_file.exists():
 
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=[])
-BLOG_POSTS_DIR = env("BLOG_POSTS_DIR")
+BLOG_POSTS_DIR = env("BLOG_POSTS_DIR", default=str(ROOT_DIR / "content" / "posts"))
 
 INSTALLED_APPS = [
     "django.contrib.admin",

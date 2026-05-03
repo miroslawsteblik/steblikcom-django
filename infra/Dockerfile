@@ -44,10 +44,11 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 RUN groupadd --system app && useradd --system --gid app --home /app app
 WORKDIR /app
 
-
 # Copy the venv and the source from the builder stage.
 COPY --from=builder --chown=app:app /app /app
-RUN chmod +x /app/scripts/entrypoint.sh
+# WORKDIR creates /app as root; fix ownership so the app user can write
+# control sockets and pid files into the working directory.
+RUN chown app:app /app && chmod +x /app/scripts/entrypoint.sh
 
 USER app
 
