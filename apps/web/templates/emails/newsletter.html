@@ -1,0 +1,29 @@
+{% extends "emails/_base.html" %}
+{% block title %}{{ subject }}{% endblock %}
+
+{% block card_content %}
+  <p style="margin:0 0 20px;font-size:16px;line-height:1.65;color:#424a53;">
+    Hi {% if subscriber.first_name %}{{ subscriber.first_name }}{% else %}there{% endif %},
+  </p>
+
+  <p style="margin:0 0 28px;font-size:16px;line-height:1.65;color:#424a53;">
+    {{ body_markdown|linebreaksbr }}
+  </p>
+{% endblock %}
+
+{% block footer %}
+  <p style="margin:0 0 6px;font-size:13px;color:#656d76;line-height:1.5;">
+    You're receiving this because you opted in to updates from
+    <a href="{{ site_url }}" style="color:#656d76;">steblik.com</a>.
+  </p>
+  <p style="margin:0 0 6px;font-size:13px;color:#656d76;">
+    <a href="{{ unsubscribe_url }}" style="color:#8b949e;text-decoration:underline;">
+      Unsubscribe
+    </a>
+    &nbsp;&middot;&nbsp;
+    {{ operator_name }} &middot; steblik.com
+  </p>
+  <p style="margin:0;font-size:13px;color:#8b949e;">
+    &copy; {% now "Y" %} {{ operator_name }}{% if operator_address %} &middot; {{ operator_address }}{% endif %}
+  </p>
+{% endblock %}

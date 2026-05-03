@@ -12,8 +12,8 @@ sitemaps = {
 urlpatterns = [
     path("manage/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
-    path("blog/", include("apps.web.steblik.blog.urls")),
-    path("me/", include("apps.web.steblik.accounts.urls")),
+    path("blog/", include("steblik.blog.urls")),
+    path("me/", include("steblik.accounts.urls")),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
-    path("", include("apps.web.steblik.pages.urls")),  # catch-all last
+    path("", include("steblik.pages.urls")),  # catch-all last
 ]

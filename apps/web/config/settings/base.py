@@ -9,9 +9,8 @@ from pathlib import Path
 import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent  # apps/web/
-print(BASE_DIR)
 ROOT_DIR = BASE_DIR.parent.parent  # repo root
-print(ROOT_DIR)
+
 
 env = environ.Env()
 # Read .env from repo root if present (dev). In prod, env vars come from the
@@ -43,10 +42,12 @@ INSTALLED_APPS = [
     "steblik.pages",
     "steblik.blog",
     "steblik.accounts",
+    "steblik.emailing",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "csp.middleware.CSPMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -77,16 +78,8 @@ TEMPLATES = [
     },
 ]
 
-# todo POSTGRES DATABASES = {"default": env.db("DATABASE_URL")}
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": env("DATABASE_NAME", default=str(BASE_DIR / "db.sqlite3")),
-        "OPTIONS": {
-            "init_command": "PRAGMA journal_mode=WAL; PRAGMA synchronous=NORMAL;",
-        },
-    }
+    "default": env.db("DATABASE_URL"),
 }
 
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
@@ -95,10 +88,12 @@ ACCOUNT_SIGNUP_FIELDS = ["email*", "password1*", "password2*"]
 LOGIN_REDIRECT_URL = "/me/"
 ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 AUTH_USER_MODEL = "accounts.User"
+ACCOUNT_ADAPTER = "steblik.accounts.adapter.AccountAdapter"
+ACCOUNT_SIGNUP_FORM_CLASS = "steblik.accounts.forms.CustomSignupForm"
 
 PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.Argon2PasswordHasher",
     "django.contrib.auth.hashers.PBKDF2PasswordHasher",
-    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
 ]
 
 LANGUAGE_CODE = "en-gb"
@@ -132,6 +127,24 @@ SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"
 SECURE_REFERRER_POLICY = "same-origin"
+
+# Content-Security-Policy (django-csp 4.0)
+# All assets are self-hosted; no CDNs, no external fonts, no inline scripts.
+CONTENT_SECURITY_POLICY = {
+    "DIRECTIVES": {
+        "default-src": ["'self'"],
+        "script-src": ["'self'"],
+        "style-src": ["'self'"],
+        "img-src": ["'self'", "data:"],
+        "font-src": ["'self'"],
+        "connect-src": ["'self'"],
+        "object-src": ["'none'"],
+        "base-uri": ["'self'"],
+        "form-action": ["'self'"],
+        "frame-ancestors": ["'none'"],
+    }
+}
+SECURE_CROSS_ORIGIN_OPENER_POLICY = "same-origin"
 
 # Site-wide metadata exposed to templates via context processor
 SITE_META = {

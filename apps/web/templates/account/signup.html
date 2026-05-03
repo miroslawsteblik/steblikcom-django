@@ -21,6 +21,14 @@
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
       {% endif %}
       <div class="auth-field">
+        <label for="id_first_name">First name <span class="text-muted">(optional)</span></label>
+        <input type="text"
+               name="first_name"
+               id="id_first_name"
+               autocomplete="given-name"
+               value="{{ form.first_name.value|default:'' }}">
+      </div>
+      <div class="auth-field">
         <label for="id_email">Email</label>
         <input type="email"
                name="email"
@@ -46,7 +54,18 @@
                autocomplete="new-password"
                required>
       </div>
-      <button type="submit" class="btn-primary btn-full">Create account</button>
+      <div class="auth-field" style="display:flex;gap:.75rem;align-items:flex-start;margin-top:1rem;">
+        <input type="checkbox"
+               name="marketing_consent"
+               id="id_marketing_consent"
+               style="margin-top:3px;flex-shrink:0;"
+               {% if form.marketing_consent.value %}checked{% endif %}>
+        <label for="id_marketing_consent" style="font-size:0.9rem;color:var(--muted);cursor:pointer;">
+          Email me about new posts and upcoming courses.
+          You can unsubscribe at any time.
+        </label>
+      </div>
+      <button type="submit" class="btn-primary btn-full" style="margin-top:1.5rem;">Create account</button>
     </form>
   </div>
 {% endblock %}

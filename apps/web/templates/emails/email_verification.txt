@@ -1,0 +1,11 @@
+Verify your email address — steblik.com
+
+Thanks for signing up. Follow the link below to confirm your address and
+activate your account. The link expires in 3 days.
+
+{{ verification_url }}
+
+If you didn't create an account, you can safely ignore this email.
+
+—
+steblik.com

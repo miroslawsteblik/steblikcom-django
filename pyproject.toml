@@ -22,6 +22,9 @@ dependencies = [
     "resend>=2.29.0",
     "django-extensions>=4.1",
     "django-htmx>=1.27.0",
+    "django-csp>=4.0",
+    "argon2-cffi>=25.1.0",
+    "psycopg[binary]>=3.2",
 ]
 
 [dependency-groups]

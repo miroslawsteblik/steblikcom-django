@@ -22,6 +22,8 @@ services:
       dockerfile: infra/Dockerfile
     restart: unless-stopped
     env_file: ../.env
+    environment:
+      DATABASE_URL: "postgres://${POSTGRES_USER:-steblik}:${POSTGRES_PASSWORD:-steblik}@db:5432/${POSTGRES_DB:-steblik}"
     depends_on:
       db:
         condition: service_healthy

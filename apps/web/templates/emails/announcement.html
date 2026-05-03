@@ -1,0 +1,42 @@
+{% extends "emails/_base.html" %}
+{% block title %}{{ announcement.subject }}{% endblock %}
+
+{% block card_content %}
+  <p style="margin:0 0 20px;font-size:16px;line-height:1.65;color:#424a53;">
+    Hi {{ display_name }},
+  </p>
+
+  {% if raw_html %}
+    {{ raw_html }}
+  {% else %}
+    <p style="margin:0 0 28px;font-size:16px;line-height:1.65;color:#424a53;">
+      {{ body_text|linebreaksbr }}
+    </p>
+  {% endif %}
+
+  <p style="margin:28px 0 0;font-size:14px;line-height:1.65;color:#656d76;">
+    <a href="{{ profile_url }}"
+       style="display:inline-block;background-color:#0969da;color:#ffffff;
+              font-size:14px;font-weight:600;text-decoration:none;
+              padding:9px 20px;border-radius:6px;">
+      Visit your dashboard &rarr;
+    </a>
+  </p>
+{% endblock %}
+
+{% block footer %}
+  <p style="margin:0 0 6px;font-size:13px;color:#656d76;line-height:1.5;">
+    You're receiving this because you opted in to updates from
+    <a href="{{ site_url }}" style="color:#656d76;">steblik.com</a>.
+  </p>
+  <p style="margin:0 0 6px;font-size:13px;color:#656d76;">
+    <a href="{{ unsubscribe_url }}" style="color:#8b949e;text-decoration:underline;">
+      Unsubscribe
+    </a>
+    &nbsp;&middot;&nbsp;
+    Miroslaw Steblik &middot; steblik.com
+  </p>
+  <p style="margin:0;font-size:13px;color:#8b949e;">
+    &copy; {% now "Y" %} Miroslaw Steblik
+  </p>
+{% endblock %}

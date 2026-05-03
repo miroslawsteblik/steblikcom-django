@@ -1,0 +1,9 @@
+Hi {{ display_name }},
+
+{{ announcement.body_text }}
+
+—
+You're receiving this because you opted in to updates from steblik.com.
+Unsubscribe: {{ unsubscribe_url }}
+
+© {% now "Y" %} Miroslaw Steblik · steblik.com

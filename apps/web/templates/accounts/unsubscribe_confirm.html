@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Unsubscribe — {{ site_meta.name }}{% endblock %}
+{% block banner %}{% endblock %}
+{% block content %}
+  <div class="auth-card">
+    <h1 class="auth-title">Unsubscribe</h1>
+    <p class="auth-subtitle">
+      You'll no longer receive posts and course updates from steblik.com.
+      You can re-enable these at any time from your
+      <a href="{% url 'profile' %}">dashboard</a>.
+    </p>
+    <form method="post" action="{% url 'unsubscribe' token %}">
+      {% csrf_token %}
+      <button type="submit" class="btn-primary btn-full">Confirm unsubscribe</button>
+    </form>
+  </div>
+{% endblock %}

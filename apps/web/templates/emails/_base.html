@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>{% block title %}steblik.com{% endblock %}</title>
+  <style>
+    body { margin: 0; padding: 0; background-color: #f6f8fa; }
+    a { color: #0969da; }
+    @media only screen and (max-width: 620px) {
+      .wrapper { padding: 24px 12px !important; }
+      .card    { padding: 24px 20px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:#f6f8fa;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+
+  <table width="100%" cellpadding="0" cellspacing="0" role="presentation"
+         style="background-color:#f6f8fa;">
+    <tr>
+      <td align="center" class="wrapper" style="padding:40px 16px;">
+
+        <table width="600" cellpadding="0" cellspacing="0" role="presentation"
+               style="max-width:600px;width:100%;">
+
+          <!-- Brand header -->
+          <tr>
+            <td style="padding:0 0 28px;">
+              <a href="https://steblik.com"
+                 style="font-family:Inter,-apple-system,sans-serif;font-size:18px;font-weight:700;
+                        color:#0d1117;text-decoration:none;letter-spacing:-0.3px;">
+                &lt;/&gt;&nbsp;steblik.com
+              </a>
+            </td>
+          </tr>
+
+          <!-- Main card -->
+          <tr>
+            <td class="card"
+                style="background-color:#ffffff;border:1px solid #d0d7de;border-radius:8px;
+                       padding:32px 36px;box-shadow:0 1px 3px rgba(31,35,40,0.06);">
+              {% block card_content %}{% endblock %}
+            </td>
+          </tr>
+
+          <!-- Divider -->
+          <tr>
+            <td style="padding:32px 0 0;">
+              <hr style="border:none;border-top:1px solid #d0d7de;margin:0;">
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 0 0;text-align:center;">
+              {% block footer %}
+              <p style="margin:0 0 6px;font-size:13px;color:#656d76;line-height:1.5;">
+                You're receiving this because you have an account on
+                <a href="https://steblik.com" style="color:#656d76;">steblik.com</a>.
+              </p>
+              <p style="margin:0;font-size:13px;color:#8b949e;">
+                &copy; {% now "Y" %} Miroslaw Steblik &middot; steblik.com
+              </p>
+              {% endblock %}
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
