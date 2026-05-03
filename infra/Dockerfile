@@ -47,6 +47,7 @@ WORKDIR /app
 
 # Copy the venv and the source from the builder stage.
 COPY --from=builder --chown=app:app /app /app
+RUN chmod +x /app/scripts/entrypoint.sh
 
 USER app
 
