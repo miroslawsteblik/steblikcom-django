@@ -34,12 +34,14 @@ dev = [
     "pytest-cov>=4.0.0",
     "django-debug-toolbar>=4.4",
     "pytest-django>=4.9",
-
     # Linting / formatting
     "ruff>=0.9.0",
     "pre-commit>=3.0.0",
     "bandit>=1.7.0",
     "djlint>=1.36.0",
+    # Dev server
+    "django-browser-reload>=1.12",
+    "watchfiles>=1.1.1",
 ]
 
 [build-system]

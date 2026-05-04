@@ -10,7 +10,7 @@ tags:
   - parquet
   - performance
 premium: false
-draft: false
+draft: true
 ---
 
 In the [last article](/posts/pandas-polars-migration) I covered the day-one mechanics of moving from pandas to Polars. This one tackles the question that comes about a week later: **how do you process a dataset that doesn't fit in RAM?**

@@ -1,5 +1,9 @@
 services:
 
+  db:
+    ports:
+      - "5433:5432"   # expose to host for local Django dev (just dev)
+
   web:
     build:
       target: builder           # use the builder stage so `uv` is available
@@ -12,6 +16,7 @@ services:
       - 0.0.0.0:8000
     environment:
       DJANGO_SETTINGS_MODULE: config.settings.dev
+      UV_PROJECT_ENVIRONMENT: /opt/venv   # venv lives outside the host mount; no collision
     volumes:
       - ../:/app
     ports:

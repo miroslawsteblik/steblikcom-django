@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Services — {{ site_meta.name }}{% endblock %}
-{% block meta_description %}Data engineering consulting, freelance pipelines, and courses — 7 years building financial data infrastructure at Bloomberg and Mercer.{% endblock %}
+{% block meta_description %}
+  Data engineering consulting, freelance pipelines, and courses — 7 years building financial data infrastructure at Bloomberg and Mercer.
+{% endblock %}
 {% block banner %}{% endblock %}
 {% block content %}
-
   {# ── Hero ─────────────────────────────────────────────────────────────────── #}
   <section class="about-hero">
     <h1>Work with me</h1>
@@ -14,7 +15,6 @@
       Available for freelance engagements, consulting, and corporate data projects.
     </p>
   </section>
-
   {# ── Stats strip ──────────────────────────────────────────────────────────── #}
   <div class="exp-stats">
     <div class="exp-stat">
@@ -34,12 +34,10 @@
       <span class="exp-stat-label">Certifications</span>
     </div>
   </div>
-
   {# ── Services ─────────────────────────────────────────────────────────────── #}
   <section class="about-section">
     <h2>Services</h2>
     <div class="services-grid">
-
       <div class="service-card">
         <div class="service-icon">🏗️</div>
         <h3>Data infrastructure</h3>
@@ -50,7 +48,6 @@
         </p>
         <p class="service-ideal">Best for: scale-ups and investment firms building their first serious data platform.</p>
       </div>
-
       <div class="service-card">
         <div class="service-icon">🔧</div>
         <h3>Pipeline engineering</h3>
@@ -60,10 +57,11 @@
         </p>
         <p class="service-ideal">Best for: teams drowning in manual data work or brittle ETL scripts.</p>
       </div>
-
       <div class="service-card">
         <div class="service-icon">🎓</div>
-        <h3>Courses <span class="coming-soon-badge">Coming soon</span></h3>
+        <h3>
+          Courses <span class="coming-soon-badge">Coming soon</span>
+        </h3>
         <p>
           Structured learning on the modern data stack — dbt, Polars, pipeline
           architecture, and building production-grade systems. Real projects,
@@ -71,7 +69,6 @@
         </p>
         <p class="service-ideal">Best for: data analysts moving into engineering, or engineers upskilling.</p>
       </div>
-
       <div class="service-card">
         <div class="service-icon">💬</div>
         <h3>Consulting</h3>
@@ -82,23 +79,19 @@
         </p>
         <p class="service-ideal">Best for: CTOs and Heads of Data who need honest, independent input.</p>
       </div>
-
     </div>
-
     <div class="services-cta">
       <p>Interested in working together?</p>
       <a href="mailto:{{ site_meta.email }}" class="btn-primary">Get in touch</a>
     </div>
   </section>
-
   {# ── Experience timeline ───────────────────────────────────────────────────── #}
   <section class="about-section">
     <h2>Track record</h2>
     <ul class="timeline">
-
       <li class="timeline-item">
         <p class="timeline-period">Sep 2024 — Present</p>
-        <p class="timeline-role">Data Engineer — Workplace Savings</p>
+        <p class="timeline-role">Data Engineer</p>
         <p class="timeline-company">Mercer Ltd · London</p>
         <ul>
           <li>
@@ -121,18 +114,22 @@
           </li>
         </ul>
       </li>
-
       <li class="timeline-item">
         <p class="timeline-period">Aug 2021 — Aug 2024</p>
-        <p class="timeline-role">Data Analyst — Workplace Savings</p>
+        <p class="timeline-role">Data Analyst</p>
         <p class="timeline-company">Mercer Ltd · London</p>
         <ul>
-          <li><strong>Automated the manual stuff.</strong> Python scripts replaced repetitive MI reporting processes.</li>
-          <li><strong>Sales Pipeline Tracker.</strong> Power BI dashboard the sales team actually uses — printed and put on walls.</li>
-          <li><strong>Data quality processes.</strong> Controls for accuracy and auditability of financial data in a regulated environment.</li>
+          <li>
+            <strong>Automated the manual stuff.</strong> Python scripts replaced repetitive MI reporting processes.
+          </li>
+          <li>
+            <strong>Sales Pipeline Tracker.</strong> Power BI dashboard the sales team actually uses — printed and put on walls.
+          </li>
+          <li>
+            <strong>Data quality processes.</strong> Controls for accuracy and auditability of financial data in a regulated environment.
+          </li>
         </ul>
       </li>
-
       <li class="timeline-item">
         <p class="timeline-period">Nov 2017 — Jul 2021</p>
         <p class="timeline-role">Data Management Analyst</p>
@@ -150,10 +147,8 @@
           </li>
         </ul>
       </li>
-
     </ul>
   </section>
-
   {# ── Certifications ────────────────────────────────────────────────────────── #}
   <section class="about-section">
     <h2>Certifications &amp; Education</h2>
@@ -180,5 +175,4 @@
       </div>
     </div>
   </section>
-
 {% endblock %}

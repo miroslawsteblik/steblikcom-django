@@ -6,7 +6,7 @@ summary: "How a few config.properties tweaks, a proper log4j2.properties, and a 
 tags: [salesforce, dataloader, powershell, etl]
 audience: "Data developers and Salesforce admins running Data Loader from the command line"
 premium: true
-draft: true
+draft: false
 ---
 
 ## TL;DR

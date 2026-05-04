@@ -7,14 +7,17 @@ default:
 install:
     uv sync
 
-# ── Dev (Docker) ──────────────────────────────────────────────────────────────
+# ── Dev  ──────────────────────────────────────────────────────────────
+db:
+    docker compose -f infra/compose.yaml -f infra/compose.dev.yaml up db
+
+dev:
+    uv run python apps/web/manage.py runserver
 
 # Start dev stack (hot reload, runserver, dev settings)
 run:
     docker compose -f infra/compose.yaml -f infra/compose.dev.yaml up
 
-run-dev:
-    docker compose -f infra/compose.yaml -f infra/compose.dev.yaml up
 
 # ── Prod (Docker) ─────────────────────────────────────────────────────────────
 

@@ -1,52 +1,65 @@
 {% extends "base.html" %}
 {% block title %}Privacy Policy — {{ site_meta.name }}{% endblock %}
-{% block meta_description %}Privacy policy for steblik.com — what data is collected, the lawful basis, your rights, and sub-processors.{% endblock %}
+{% block meta_description %}
+  Privacy policy for steblik.com — what data is collected, the lawful basis, your rights, and sub-processors.
+{% endblock %}
 {% block content %}
   <article class="prose">
     <h1>Privacy Policy</h1>
     <p class="meta">Last updated: 28 April 2026</p>
-
     <p>
       This site (<strong>steblik.com</strong>) is operated by Miroslaw Steblik
       (<a href="mailto:{{ site_meta.email }}">{{ site_meta.email }}</a>),
-      a sole trader based in the United Kingdom, acting as the data controller
+      an individual based in the United Kingdom, acting as the data controller
       under the UK GDPR and EU GDPR.
     </p>
-
     <p>
       This policy describes what personal data is collected when you use the
       site, the lawful basis for processing it, who it is shared with, how long
       it is kept, and the rights you have under data protection law.
     </p>
-
     <h2>Summary</h2>
     <ul>
-      <li>The only personal data collected at registration is your email address.</li>
+      <li>The only personal data collected at registration is your email address and name.</li>
+      <li>The site does not currently offer or process payments.</li>
       <li>No analytics, no tracking pixels, no third-party advertising.</li>
       <li>Cookies are limited to those strictly necessary for login and security.</li>
       <li>Email is sent via Resend (US) under standard contractual clauses.</li>
       <li>You can request access, correction, or deletion at any time.</li>
     </ul>
-
     <h2>Data collected</h2>
-
     <h3>Account data</h3>
     <ul>
-      <li><strong>Email address</strong> — used to log in, verify your account, and send password resets and other account-related messages.</li>
-      <li><strong>Hashed password</strong> — stored using PBKDF2 (Django default). The plain-text password is never stored.</li>
-      <li><strong>Date of registration and last login</strong> — stored alongside your account for security and account management.</li>
+      <li>
+        <strong>Name</strong> — a display name you provide at registration. Used to
+        address you in transactional and (if you opt in) newsletter emails,
+        and to identify you within the site. You may use a real name, a
+        preferred name, or a pseudonym.
+      </li>
+      <li>
+        <strong>Email address</strong> — used to log in, verify your account, and send password resets and other account-related messages.
+      </li>
+      <li>
+        <strong>Hashed password</strong> — stored using PBKDF2 (Django default). The plain-text password is never stored.
+      </li>
+      <li>
+        <strong>Date of registration and last login</strong> — stored alongside your account for security and account management.
+      </li>
     </ul>
     <p>
       No name, postal address, payment details, or other personal information
       is collected at registration. Providing an email address is required to
       create an account; the site can otherwise be browsed without registering.
     </p>
-
     <h3>Cookies</h3>
     <p>The site sets two cookies, both strictly necessary:</p>
     <ul>
-      <li><code>sessionid</code> — keeps you signed in. Expires after two weeks of inactivity or when you log out.</li>
-      <li><code>csrftoken</code> — prevents cross-site request forgery. Expires after one year.</li>
+      <li>
+        <code>sessionid</code> — keeps you signed in. Expires after two weeks of inactivity or when you log out.
+      </li>
+      <li>
+        <code>csrftoken</code> — prevents cross-site request forgery. Expires after one year.
+      </li>
     </ul>
     <p>
       Both cookies are exempt from the consent requirement under the
@@ -54,7 +67,6 @@
       ePrivacy Directive, as they are strictly necessary for the service you
       have requested. They are not used for tracking, analytics, or profiling.
     </p>
-
     <h3>Server logs</h3>
     <p>
       Standard web-server access logs record your IP address, user agent,
@@ -62,23 +74,32 @@
       <strong>14 days</strong> and then automatically deleted. They are used
       for debugging, abuse prevention, and security monitoring.
     </p>
-
     <h2>What is not collected</h2>
     <ul>
       <li>No analytics or tracking scripts (no Google Analytics, no tracking pixels, no fingerprinting).</li>
       <li>No third-party advertising networks.</li>
       <li>No social media embeds that load tracking code.</li>
       <li>Fonts are self-hosted — no requests are made to Google Fonts or any external font CDN.</li>
+      <li>No payment data — the site does not currently take payments.</li>
     </ul>
-
     <h2>Lawful basis for processing</h2>
     <p>Under Article 6 of the UK/EU GDPR, the lawful bases for processing are:</p>
     <ul>
-      <li><strong>Account creation, authentication, and transactional email</strong> — performance of a contract (Art 6(1)(b)). When you create an account, you enter into a contract with the operator to provide access to the service.</li>
-      <li><strong>Session and CSRF cookies, server logs, security monitoring</strong> — legitimate interests (Art 6(1)(f)): keeping the service available, secure, and free from abuse.</li>
-      <li><strong>Newsletter and marketing email (if you subscribe)</strong> — consent (Art 6(1)(a)) and PECR. Consent is given by an explicit opt-in and can be withdrawn at any time using the unsubscribe link in any marketing email.</li>
+      <li>
+        <strong>Account creation, authentication, and transactional email</strong> — performance of a contract (Art 6(1)(b)). When you create an account, you enter into a contract with the operator to provide access to the service.
+      </li>
+      <li>
+        <strong>Session and CSRF cookies, server logs, security monitoring</strong> — legitimate interests (Art 6(1)(f)): keeping the service available, secure, and free from abuse.
+      </li>
+      <li>
+        <strong>Newsletter and marketing email (if you subscribe)</strong> — consent (Art 6(1)(a)) and PECR. Consent is given by an explicit opt-in and can be withdrawn at any time using the unsubscribe link in any marketing email or by emailing <a href="mailto:{{ site_meta.email }}">{{ site_meta.email }}</a>.
+      </li>
     </ul>
-
+    <p>
+      Withdrawing newsletter consent does not affect transactional emails
+      necessary for the operation of your account, and does not affect the
+      lawfulness of processing carried out before consent was withdrawn.
+    </p>
     <h2>Sub-processors and third parties</h2>
     <p>The following third parties process personal data on behalf of the site, under data processing agreements:</p>
     <ul>
@@ -88,11 +109,10 @@
       </li>
       <li>
         <strong>Email delivery — <a href="https://resend.com" rel="noopener noreferrer">Resend</a> (United States):</strong>
-        Account-related and (if you opt in) marketing emails are delivered via Resend. Your email address and the message content are passed to Resend solely to deliver the message. Resend retains delivery metadata (delivered/bounced/opened) for operational purposes. See <a href="https://resend.com/legal/privacy-policy" rel="noopener noreferrer">Resend's privacy policy</a>.
+        Account-related and newsletter emails are delivered via Resend. Your email address and the message content are passed to Resend solely to deliver the message. Resend retains delivery metadata (delivered/bounced/opened) for operational purposes. See <a href="https://resend.com/legal/privacy-policy" rel="noopener noreferrer">Resend's privacy policy</a>.
       </li>
     </ul>
     <p>No personal data is sold or shared with advertisers, data brokers, or any third party for their own purposes.</p>
-
     <h2>International transfers</h2>
     <p>
       Resend is established in the United States. Email addresses transferred
@@ -102,20 +122,26 @@
       contractual safeguards equivalent to UK/EU data protection standards.
     </p>
     <!-- TODO: add a similar paragraph if your hosting provider is outside the UK/EEA -->
-
     <h2>Data retention</h2>
     <ul>
-      <li><strong>Account data</strong> — kept for as long as your account is active.</li>
-      <li><strong>Server logs</strong> — 14 days.</li>
-      <li><strong>Email delivery logs (at Resend)</strong> — retained according to Resend's own retention schedule, typically up to 30 days for message content and longer for aggregate metadata.</li>
-      <li><strong>Encrypted database backups</strong> — deleted account data may persist in encrypted backups for up to 30 days before being purged.</li>
+      <li>
+        <strong>Account data</strong> — kept for as long as your account is active.
+      </li>
+      <li>
+        <strong>Server logs</strong> — 14 days.
+      </li>
+      <li>
+        <strong>Email delivery logs (at Resend)</strong> — retained according to Resend's own retention schedule, typically up to 30 days for message content and longer for aggregate metadata.
+      </li>
+      <li>
+        <strong>Encrypted database backups</strong> — deleted account data may persist in encrypted backups for up to 30 days before being purged.
+      </li>
     </ul>
     <p>
       If you request deletion, your account and email address are removed from
       live systems within <strong>30 days</strong> and from backups within the
       backup-retention window above.
     </p>
-
     <h2>Security</h2>
     <ul>
       <li>All connections to the site are encrypted using TLS.</li>
@@ -123,17 +149,30 @@
       <li>The database is encrypted at rest by the hosting provider.</li>
       <li>Access to production systems is restricted to the operator and protected by multi-factor authentication.</li>
     </ul>
-
     <h2>Your rights</h2>
     <p>Under the UK and EU GDPR you have the right to:</p>
     <ul>
-      <li><strong>Access</strong> — request a copy of the personal data held about you.</li>
-      <li><strong>Rectification</strong> — correct inaccurate or incomplete data.</li>
-      <li><strong>Erasure</strong> — request deletion of your account and associated data.</li>
-      <li><strong>Restriction</strong> — ask that processing be limited while a dispute is resolved.</li>
-      <li><strong>Portability</strong> — receive your data in a structured, machine-readable format.</li>
-      <li><strong>Object</strong> — object to processing based on legitimate interests.</li>
-      <li><strong>Withdraw consent</strong> — where processing is based on consent (e.g. marketing), you can withdraw it at any time without affecting the lawfulness of processing carried out before withdrawal.</li>
+      <li>
+        <strong>Access</strong> — request a copy of the personal data held about you.
+      </li>
+      <li>
+        <strong>Rectification</strong> — correct inaccurate or incomplete data.
+      </li>
+      <li>
+        <strong>Erasure</strong> — request deletion of your account and associated data.
+      </li>
+      <li>
+        <strong>Restriction</strong> — ask that processing be limited while a dispute is resolved.
+      </li>
+      <li>
+        <strong>Portability</strong> — receive your data in a structured, machine-readable format.
+      </li>
+      <li>
+        <strong>Object</strong> — object to processing based on legitimate interests.
+      </li>
+      <li>
+        <strong>Withdraw consent</strong> — where processing is based on consent (e.g. marketing), you can withdraw it at any time without affecting the lawfulness of processing carried out before withdrawal.
+      </li>
     </ul>
     <p>
       To exercise any of these rights, email
@@ -147,20 +186,17 @@
       the UK supervisory authority, or the supervisory authority in your
       country of residence within the EEA.
     </p>
-
     <h2>Children</h2>
     <p>
       The service is not directed at children under 16 and is not intended for
       their use. If an account is identified as belonging to a child under 16,
       it will be deleted.
     </p>
-
     <h2>Automated decision-making</h2>
     <p>
       No automated decision-making or profiling that produces legal or
       similarly significant effects is performed on your data.
     </p>
-
     <h2>Data breaches</h2>
     <p>
       In the event of a personal data breach that is likely to result in a
@@ -169,14 +205,12 @@
       Where the risk is high, affected users will be notified directly
       without undue delay.
     </p>
-
     <h2>Third-party links</h2>
     <p>
       The site may contain links to external websites. Those sites have their
       own privacy policies and practices, for which the operator of this site
       is not responsible.
     </p>
-
     <h2>Changes to this policy</h2>
     <p>
       If this policy changes materially, registered users will be notified by
@@ -184,7 +218,6 @@
       notification. The "last updated" date above will always reflect the
       current version.
     </p>
-
     <h2>Contact</h2>
     <p>
       For any question about this policy or your personal data, contact

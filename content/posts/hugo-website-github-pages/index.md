@@ -4,15 +4,14 @@ date: 2025-06-28
 slug: hugo-website-github-pages
 summary: "Learn how to create a fast, secure website using Hugo static site generator and host it for free on GitHub Pages. Step-by-step guide."
 banner_image: "gh_actions_success.jpeg"
+card_image: "github_logo.png"
 tags: ["hugo", "github-pages", "static-site", "web-development"]
 draft: false
 ---
 
 ## Intro
 
-After years of using WordPress for my personal projects, I decided to try something different for my portfolio site. I wanted a solution that was fast, secure, and didn't require constant updates and maintenance. That's when I discovered **Hugo and GitHub Pages** - a powerful combination for creating static websites.
-
-In this guide, I'll walk you through my complete process of building this very website using Hugo and deploying it to GitHub Pages. You'll learn how to set up a development environment, create content with Markdown, customize themes, and automate deployment - all for free (almost) and without worrying about databases or server management.
+In this guide, I'll walk you through my complete process of building website using Hugo and deploying it to GitHub Pages. You'll learn how to set up a development environment, create content with Markdown, customize themes, and automate deployment - all for free (almost) and without worrying about databases or server management.
 
 ## What is Hugo?
 
@@ -30,7 +29,7 @@ You can use Hugo’s embedded web server during development to instantly see cha
 
 ## Create a site
 
-There are probably couple ways of doing that, but I have decided to create website theme and the main website separately and install it as Hugo module. Link to my theme is here: [github.com/miroslawsteblik/hugo-theme-data-blog](github.com/miroslawsteblik/hugo-theme-data-blog)
+There are probably couple ways of doing that, but I have decided to create website theme and the main website separately and install it as Hugo module. Link to my theme is here: [github.com/miroslawsteblik/hugo-theme-data-blog](https://github.com/miroslawsteblik/hugo-theme-data-blog)
 
 ## Create theme
 
@@ -141,9 +140,6 @@ To see draft content run
 hugo server --buildDrafts
 ```
 
-## Custom Domain Setup
-
-I purchased my custom domain through [GoDaddy](https://www.godaddy.com/en-uk), which provided a straightforward purchase experience.
 
 ## DNS Configuration
 

@@ -11,7 +11,7 @@ def site_meta(request):
         nav_items = [
             {"label": "Blog", "url_name": "blog:post_list"},
             {"label": "About", "url_name": "pages:about"},
-            {"label": "Services", "url_name": "pages:experience"},
+            # {"label": "Services", "url_name": "pages:experience"},
         ]
 
     return {

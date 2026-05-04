@@ -3,20 +3,11 @@ title: "Hexagonal Architecture in Python"
 date: 2025-08-16
 slug: clean-architecture-python
 summary: "Building a market data app with hexagonal architecture in Python. Clean separation of concerns and maintainable code."
-card_image: "github_logo.png"
 tags: ["python", "clean-architecture", "api"]
 draft: false
 ---
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Design Principles](#design)
-- [Project implementation ](#project-implementation)
-- [Prons and Cons](#prons_and_cons)
-- [Conclusion](#conclusion)
-
-## Introduction {#introduction}
+## Introduction
 
 **Hexagonal Architecture**, also known as **Clean Architecture** or **Ports and Adapters**, is a software design pattern that promotes separation of concerns, testability, and maintainability. This architectural pattern places the business logic at the center (the "hexagon") and isolates it from external dependencies through well-defined interfaces.
 
@@ -41,7 +32,7 @@ Traditional data pipelines often become tightly coupled monoliths where business
 
 Clean Architecture solves these problems by creating **clear boundaries** between different concerns, allowing each component to evolve independently while maintaining system integrity.
 
-## Design Principles {#design}
+## Design Principles
 
 1. **Port:** Think of a port as a "contract" or interface that defines what your application needs from the outside world, without caring about the specific details of how those needs are met. It's like a USB port on your computer - it defines the shape and electrical specifications, but doesn't care whether you plug in a mouse, keyboard, or external drive.
 
@@ -67,7 +58,7 @@ Clean Architecture solves these problems by creating **clear boundaries** betwee
 
 9. **The Dependency Rule:** Dependencies can only point inward toward the domain. The domain layer knows nothing about the application layer, which knows nothing about the infrastructure layer. This creates a protective boundary around your business logic.
 
-## Project implementation {#project-implementation}
+## Project implementation
 
 ### Prerequisites
 
@@ -107,8 +98,6 @@ myproject
 ├── logs
 ├── main.py
 ```
-
-
 
 #### Example entity - MarketData:
 
@@ -289,7 +278,7 @@ ALPHA_VANTAGE_API_KEY=your_api_key_here
 
 ```
 
-## Pros and Cons {#pros_and_cons}
+## Pros and Cons
 
 ### **Pros: When Clean Architecture Shines**
 

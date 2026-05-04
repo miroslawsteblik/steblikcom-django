@@ -7,12 +7,10 @@
       <span class="terminal-prompt">~/data-engineering-lab $ whoami</span>
     </div>
     <h1>Data Engineering Lab</h1>
-    <p class="tagline">Pipelines. Courses. Consulting.</p>
+    <p class="tagline">Pipelines.</p>
     <p class="hero-bio">
-      A hands-on resource for data engineers — built by someone who has shipped
-      production pipelines at Bloomberg and Mercer. Learn through real-world
-      write-ups, access members-only deep-dives, or bring me in to solve your
-      data infrastructure problems.
+      A hands-on resource for data engineers. Learn through real-world
+      write-ups and access members-only deep-dives.
     </p>
     <div class="hero-links">
       {% if request.user.is_authenticated %}
@@ -24,27 +22,25 @@
       {% endif %}
     </div>
   </section>
-
   {# ── Value props ──────────────────────────────────────────────────────────── #}
   <section class="value-props">
     <div class="value-card">
       <div class="value-icon">📚</div>
       <h3>Learn</h3>
-      <p>Deep-dive articles and members-only guides on dbt, Polars, Kafka, and modern data stack architecture.</p>
+      <p>Deep-dive articles and members-only guides on dbt, Polars, and modern data stack architecture.</p>
     </div>
     <div class="value-card">
       <div class="value-icon">🔬</div>
       <h3>Lab notes</h3>
       <p>Honest write-ups from a working homelab — the experiments, the failures, and what actually ships to production.</p>
     </div>
-    <div class="value-card">
+    {% comment %} <div class="value-card">
       <div class="value-icon">🏗️</div>
       <h3>Hire</h3>
       <p>Available for freelance engagements and consulting. I build data infrastructure that investment teams trust with real numbers.</p>
       <a href="{% url 'pages:experience' %}" class="value-link">See my work →</a>
-    </div>
+    </div> {% endcomment %}
   </section>
-
   {# ── Recent posts ─────────────────────────────────────────────────────────── #}
   {% if recent_posts %}
     <section class="recent-posts">

@@ -7,7 +7,7 @@
     <div>
       <h1>Hi, I'm {{ site_meta.full_name }}</h1>
       <p class="lede">
-        I'm a data engineer working on investment data pipelines. I build
+        I'm a data engineer working on data pipelines. I build
         things with Python, Polars, and dbt, and I run a homelab to break
         things on purpose so I don't have to break them by accident at work.
       </p>
@@ -21,7 +21,7 @@
            class="profile-photo">
       <div class="profile-caption">
         <p>
-          "I build the data infrastructure that investment teams rely on when the numbers
+          "I build the data infrastructure that teams rely on when the numbers
           actually matter — pensions, fund performance, regulatory reporting. The kind of
           work where "probably right" isn't good enough."
         </p>
@@ -30,7 +30,7 @@
   </section>
   {# ── Skills ──────────────────────────────────────────────────────────── #}
   <section class="home-skills">
-    <h2 class="home-skills-heading">Skills &amp; Expertise</h2>
+    <h2 class="home-skills-heading">Skills</h2>
     <div class="skills-grid">
       <div class="skill-card">
         <h3>Programming</h3>
@@ -93,6 +93,81 @@
       My day job is turning messy financial data into reliable, queryable
       datasets. That means ingestion, transformation, modelling, monitoring, and analytics.
     </p>
+  </section>
+  {# ── Expertise ─────────────────────────────────────────────────────────────── #}
+  <section class="about-section">
+    <h2>Expertise</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3>Data infrastructure</h3>
+        <p>
+          Greenfield builds and legacy modernisation. Databricks, dbt,
+          PostgreSQL, Docker. I architect from scratch and hand over something
+          the team can actually maintain.
+        </p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Pipeline engineering</h3>
+        <p>
+          Reliable ingestion, transformation, and delivery pipelines using Python,
+          Polars, and dbt. Tested, monitored, and documented — not "it works on my machine".
+        </p>
+      </div>
+    </div>
+  </section>
+  {# ── Experience timeline ───────────────────────────────────────────────────── #}
+  <section class="about-section">
+    <h2>Track record</h2>
+    <ul class="timeline">
+      <li class="timeline-item">
+        <p class="timeline-period">Sep 2024 — Present</p>
+        <p class="timeline-role">Data Engineer</p>
+        <p class="timeline-company">Mercer Ltd · London</p>
+        <ul>
+          <li>
+            <strong>Built the data infra from zero.</strong> Designed a Databricks-based data platform from scratch, with
+            deployment tooling and CI/CD via self-hosted GitHub Actions
+            runners.
+          </li>
+          <li>
+            <strong>dbt pipelines the finance team trusts.</strong> Built dbt pipelines feeding management-information reports for
+            senior stakeholders — tested, monitored, and reproducible.
+          </li>
+          <li>
+            <strong>Python CLI replacing scripts.</strong> Replaced a chain of manual reporting steps with a single Python
+            CLI command.
+          </li>
+          <li>
+            <strong>Tooling.</strong> Built internal monitoring and tracking tools that gave an
+            analytics team meaningful capacity back.
+          </li>
+        </ul>
+      </li>
+      <li class="timeline-item">
+        <p class="timeline-period">Aug 2021 — Aug 2024</p>
+        <p class="timeline-role">Data Analyst</p>
+        <p class="timeline-company">Mercer Ltd · London</p>
+        <ul>
+          <li>
+            <strong>Automated the manual stuff.</strong> Python scripts replaced repetitive MI reporting processes.
+          </li>
+        </ul>
+      </li>
+      <li class="timeline-item">
+        <p class="timeline-period">Nov 2017 — Jul 2021</p>
+        <p class="timeline-role">Data Management Analyst</p>
+        <p class="timeline-company">Bloomberg LP · London</p>
+        <ul>
+          <li>
+            <strong>Fixed Income database.</strong> Worked on the end-to-end data lifecycle for a Bloomberg fixed-
+            income securities database used by Bloomberg Terminal subscribers
+            globally.
+          </li>
+        </ul>
+      </li>
+    </ul>
   </section>
   <section class="about-section">
     <h2>Elsewhere</h2>
